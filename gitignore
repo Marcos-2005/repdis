@@ -94,3 +94,4 @@ build/
 .env
 .env.local
 gitignore
+*.iml

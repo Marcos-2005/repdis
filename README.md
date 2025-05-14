@@ -48,6 +48,11 @@ repdis/
 │   ├── sql/                           # Scripts de schema y data para inicializar MySQL
 │   ├── start-dev.sh                   # Script para levantar entorno local
 │   └── docker-compose.yml             # Define los servicios MySQL y Adminer
+│ 
+├── frontend/                          # Frontend de la página web
+│       ├── index.html                 # Página principal
+│       ├── css/                       # Estilos
+│       └── js/                        # Lógica JS para consumir el backend
 ```
 
 ---
