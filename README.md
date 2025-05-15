@@ -9,50 +9,53 @@ Este proyecto sigue una **arquitectura hexagonal (ports & adapters)** adaptada a
 repdis/
 ├── application/
 │   └── src/main/java/
-│       ├── pom.xml
-│       ├── domain/                     # Entidades de dominio (modelos, enums)
-│       ├── application/
-│       │   ├── services/               # Casos de uso
-│       │   ├── ports/
-│       │   │   ├── driving/            # Interfaces que expone el dominio
-│       │   │   └── driven/             # Interfaces que consume el dominio
-│       │   └── exceptions/             # Excepciones del dominio
+│           ├── pom.xml
+│           ├── domain/                       # Entidades de dominio (modelos, enums)
+│           ├── com/repdis/application/
+│           │   ├── services/                 # Casos de uso
+│           │   ├── ports/
+│           │   │   ├── driving/              # Interfaces que expone el dominio
+│           │   │   └── driven/               # Interfaces que consume el dominio
+│           │   └── exceptions/               # Excepciones del dominio
 │
 ├── boot/
 │   ├── pom.xml
 │   └── src/main/java/
-│       ├── Application.java            # Clase principal que arranca la aplicación
-│       └── resources/                  # application.properties y configuración general
+│       ├── com/repdis/application/
+│       │    ├── Application.java             # Clase principal que arranca la aplicación
+│       │    └── resources/                   # application.properties y configuración general
 │
 ├── driven/
 │   ├── pom.xml
 │   └── mysqlrepository/
-│       └── src/main/java/
-│           ├── adapters/              # Implementaciones de puertos driven
-│           ├── config/                # Configuración de persistencia
-│           ├── entities/              # Entidades JPA
-│           ├── mappers/               # Conversión entre dominio y JPA
-│           └── repositories/          # Interfaces JPA
+│       │── src/main/java/
+│       │    │── com/repdis/driven
+│       │    │    ├── adapters/               # Implementaciones de puertos driven
+│       │    │    ├── config/                 # Configuración de persistencia
+│       │    │    ├── entities/               # Entidades JPA
+│       │    │    ├── mappers/                # Conversión entre dominio y JPA
+│       │    │    └── repositories/           # Interfaces JPA
 │
 ├── driving/
 │   ├── pom.xml
 │   └── apirest/
-│       └── src/main/java/
-│           ├── adapters/              # Controladores REST
-│           ├── dto/                   # Objetos de transferencia de datos
-│           ├── error/                 # Gestión de excepciones HTTP
-│           └── mappers/               # Conversión entre DTO y dominio
-│       └── support/                   # Documentación, Postman, Swagger...
+│       │── src/main/java/
+│       │    │── com/repdis/driving
+│       │    │     ├── adapters/              # Controladores REST
+│       │    │     ├── dto/                   # Objetos de transferencia de datos
+│       │    │     ├── error/                 # Gestión de excepciones HTTP
+│       │    │     └── mappers/               # Conversión entre DTO y dominio
+│       └── support/                          # Documentación, Postman, Swagger...
 │
-├── docker/
-│   ├── sql/                           # Scripts de schema y data para inicializar MySQL
-│   ├── start-dev.sh                   # Script para levantar entorno local
-│   └── docker-compose.yml             # Define los servicios MySQL y Adminer
+├── docker/                                   # Por ahora esta carpeta no sirve para nada hasta que no tenga docker
+│   ├── sql/                                  # Scripts de schema y data para inicializar MySQL
+│   ├── start-dev.sh                          # Script para levantar entorno local
+│   └── docker-compose.yml                    # Define los servicios MySQL y Adminer
 │ 
-├── frontend/                          # Frontend de la página web
-│       ├── index.html                 # Página principal
-│       ├── css/                       # Estilos
-│       └── js/                        # Lógica JS para consumir el backend
+├── frontend/                                 # Frontend de la página web
+│       ├── index.html                        # Página principal
+│       ├── css/                              # Estilos
+│       └── js/                               # Lógica JS para consumir el backend
 ```
 
 ---
