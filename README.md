@@ -11,6 +11,7 @@ repdis/
 │   └── src/main/java/
 │           ├── pom.xml
 │           ├── domain/                       # Entidades de dominio (modelos, enums)
+│           │   ├── enums/ 
 │           ├── com/repdis/application/
 │           │   ├── services/                 # Casos de uso
 │           │   ├── ports/
