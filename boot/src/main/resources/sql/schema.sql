@@ -9,18 +9,19 @@ CREATE TABLE IF NOT EXISTS clientes (
     id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(100) NOT NULL,
     dni VARCHAR(20) NOT NULL,
-    phone VARCHAR(20),
+    phone VARCHAR(20) NOT NULL,
     email VARCHAR(100),
     address VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS dispositivos (
     id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    type VARCHAR(50),
+    type VARCHAR(50) NOT NULL,
     brand VARCHAR(50),
     model VARCHAR(50),
     serial_number VARCHAR(100) UNIQUE NOT NULL,
     description TEXT,
+    password VARCHAR(100),
     image_url TEXT,
     client_id BIGINT NOT NULL,
     FOREIGN KEY (client_id) REFERENCES clientes(id)
@@ -41,16 +42,16 @@ CREATE TABLE IF NOT EXISTS empresas (
 
 CREATE TABLE IF NOT EXISTS ordenes_servicios (
     id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    entry_date DATETIME,
-    status VARCHAR(20),
-    difficulty VARCHAR(20),
+    entry_date DATETIME NOT NULL,
+    status VARCHAR(20) DEFAULT 'PENDING',
+    difficulty VARCHAR(20) DEFAULT 'MEDIUM',
     cost DECIMAL(10, 2),
+    description TEXT,
     device_id BIGINT NOT NULL,
     admin_id BIGINT NOT NULL,
     FOREIGN KEY (device_id) REFERENCES dispositivos(id),
     FOREIGN KEY (admin_id) REFERENCES administradores(id)
 );
-
 
 CREATE TABLE IF NOT EXISTS diagnosticos (
     id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
