@@ -12,10 +12,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ServiceOrderUseCaseImpl implements ServiceOrderServicePort {
 
-    private final ServiceOrderRepositoryPort serviceOrderRepositoryPort;
+    private final ServiceOrderRepositoryPort serviceOrderRepository;
 
     @Override
     public List<ServiceOrder> getAllServiceOrders() {
-        return serviceOrderRepositoryPort.findAll();
+        return serviceOrderRepository.findAll();
     }
 }
