@@ -17,6 +17,7 @@ public class ServiceOrderEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "entry_date")
     private LocalDateTime entryDate;
 
     private String status;
