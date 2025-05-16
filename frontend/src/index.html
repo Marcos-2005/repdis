@@ -1,26 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RepDis - Gestión de Taller</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepDis - Órdenes de Servicio</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <header>
-    <h1>RepDis</h1>
+    <div class="logo-container">
+        <img src="img/logo.jpg" alt="Logo RepDis" />
+        <h1>RepDis</h1>
+    </div>
     <nav>
         <ul>
+            <li><a href="#">Inicio</a></li>
             <li><a href="#" onclick="loadClients()">Clientes</a></li>
-            <!-- Aquí se añadirán más secciones como Órdenes, Dispositivos, etc. -->
+            <li><a href="#" onclick="loadOrders()">Órdenes</a></li>
         </ul>
     </nav>
 </header>
 
-<main id="main-content">
-    <!-- Aquí se cargará la vista de clientes -->
+<main>
+    <section class="form-section">
+        <form id="order-form">
+            <fieldset>
+                <legend>Orden de Servicio</legend>
+                <label>ID: <input type="text" id="order-id" disabled></label>
+                <label>Fecha de Entrada: <input type="text" id="entry-date" disabled></label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos del Cliente</legend>
+                <label>Nombre: <input type="text" id="client-name" required></label>
+                <label>DNI: <input type="text" id="client-dni" required></label>
+                <label>Teléfono: <input type="text" id="client-phone" required></label>
+                <label>Correo: <input type="email" id="client-email"></label>
+                <label>Dirección: <input type="text" id="client-address"></label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos del Dispositivo</legend>
+                <label>Tipo: <input type="text" id="device-type" required></label>
+                <label>Marca: <input type="text" id="device-brand"></label>
+                <label>Modelo: <input type="text" id="device-model"></label>
+                <label>Serie: <input type="text" id="device-serial"></label>
+                <label>Contraseña: <input type="text" id="device-password"></label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Orden</legend>
+                <label>Descripción: <textarea id="order-description"></textarea></label>
+                <label>Coste Estimado: <input type="number" id="order-cost"></label>
+                <label>Dificultad:
+                    <select id="order-difficulty">
+                        <option value="EASY">Fácil</option>
+                        <option value="MEDIUM" selected>Media</option>
+                        <option value="HARD">Difícil</option>
+                    </select>
+                </label>
+                <label>Estado:
+                    <select id="order-status">
+                        <option value="PENDING" selected>Pendiente</option>
+                        <option value="IN_PROGRESS">En proceso</option>
+                        <option value="COMPLETED">Completada</option>
+                    </select>
+                </label>
+                <label>Administrador:
+                    <select id="order-admin">
+                        <!-- Se poblará dinámicamente desde JS -->
+                    </select>
+                </label>
+            </fieldset>
+
+            <div class="form-buttons">
+                <button type="button" onclick="newOrder()">Nuevo</button>
+                <button type="button" onclick="saveOrder()">Guardar</button>
+                <button type="button" onclick="updateOrder()">Actualizar</button>
+                <button type="button" onclick="deleteOrder()">Eliminar</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="list-section">
+        <h2>Lista de Órdenes de Servicio</h2>
+        <div class="filters">
+            <label>Buscar por ID: <input type="text" id="filter-id" oninput="filterOrders()"></label>
+            <label>Buscar por DNI: <input type="text" id="filter-dni" oninput="filterOrders()"></label>
+            <label>Buscar por Serie: <input type="text" id="filter-serial" oninput="filterOrders()"></label>
+            <label>Orden:
+                <select id="order-sort" onchange="sortOrders()">
+                    <option value="desc">Reciente primero</option>
+                    <option value="asc">Antiguas primero</option>
+                </select>
+            </label>
+        </div>
+        <table id="orders-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Dispositivo</th>
+                <th>Estado</th>
+                <th>Dificultad</th>
+                <th>Fecha</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Se llenará dinámicamente -->
+            </tbody>
+        </table>
+    </section>
 </main>
 
-<script src="js/clients.js"></script>
+<script src="js/orders.js"></script>
 </body>
 </html>
