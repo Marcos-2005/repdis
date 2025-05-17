@@ -4,38 +4,30 @@ async function loadOrders() {
         if (!response.ok) throw new Error('Error al obtener las órdenes de servicio');
         const orders = await response.json();
 
-        const main = document.getElementById('main-content');
-        main.innerHTML = `
-            <h2>Órdenes de Servicio</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Fecha de Entrada</th>
-                        <th>Estado</th>
-                        <th>Dificultad</th>
-                        <th>Coste</th>
-                        <th>ID Dispositivo</th>
-                        <th>ID Admin</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${orders.map(order => `
-                        <tr>
-                            <td>${order.id}</td>
-                            <td>${order.entryDate}</td>
-                            <td>${order.status}</td>
-                            <td>${order.difficulty}</td>
-                            <td>${order.cost} €</td>
-                            <td>${order.deviceId}</td>
-                            <td>${order.adminId}</td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-        `;
+        const tableBody = document.querySelector('#orders-table tbody');
+        tableBody.innerHTML = '';
+
+        orders.forEach(order => {
+            const row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${order.id}</td>
+                <td>${order.clientId || 'N/A'}</td>
+                <td>${order.deviceId || 'N/A'}</td>
+                <td>${order.status}</td>
+                <td>${order.difficulty}</td>
+                <td>${order.entryDate}</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
     } catch (error) {
-        console.error(error);
-        document.getElementById('main-content').innerHTML = '<p>Error cargando las órdenes de servicio</p>';
+        console.error('Error cargando órdenes:', error);
+        const tableBody = document.querySelector('#orders-table tbody');
+        tableBody.innerHTML = '<tr><td colspan="6">Error al cargar las órdenes de servicio</td></tr>';
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadOrders();
+});

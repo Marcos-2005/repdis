@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@
     </nav>
 </header>
 
-<main>
+<main id="main-content">
     <section class="form-section">
         <form id="order-form">
             <fieldset>
@@ -68,7 +68,6 @@
                 </label>
                 <label>Administrador:
                     <select id="order-admin">
-                        <!-- Se poblará dinámicamente desde JS -->
                     </select>
                 </label>
             </fieldset>
@@ -106,8 +105,7 @@
                 <th>Fecha</th>
             </tr>
             </thead>
-            <tbody>
-            <!-- Se llenará dinámicamente -->
+            <tbody id="orders-body">
             </tbody>
         </table>
     </section>
