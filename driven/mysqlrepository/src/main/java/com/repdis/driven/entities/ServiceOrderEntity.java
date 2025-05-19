@@ -21,14 +21,28 @@ public class ServiceOrderEntity {
     private LocalDateTime entryDate;
 
     private String status;
-
     private String difficulty;
-
     private Double cost;
+
+    // Relaciones
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "device_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private DeviceEntity device;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private AdminEntity admin;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private ClientEntity client;
 
     @Column(name = "device_id")
     private Long deviceId;
 
     @Column(name = "admin_id")
     private Long adminId;
+
+    @Column(name = "client_id")
+    private Long clientId;
 }

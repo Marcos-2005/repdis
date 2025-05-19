@@ -18,6 +18,8 @@ public class ServiceOrderDtoMapper {
                 .cost(order.getCost())
                 .deviceId(order.getDeviceId())
                 .adminId(order.getAdminId())
+                .clientName(order.getClient() != null ? order.getClient().getName() : null)
+                .deviceType(order.getDevice() != null ? order.getDevice().getType() : null)
                 .build();
     }
 }

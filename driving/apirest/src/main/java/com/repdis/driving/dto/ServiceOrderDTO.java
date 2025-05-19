@@ -14,4 +14,7 @@ public class ServiceOrderDTO {
     private Double cost;
     private Long deviceId;
     private Long adminId;
+
+    private String clientName;
+    private String deviceType;
 }

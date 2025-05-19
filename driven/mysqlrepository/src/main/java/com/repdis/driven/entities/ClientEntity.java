@@ -5,10 +5,10 @@ import lombok.*;
 
 @Entity
 @Table(name = "clientes")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ClientEntity {
 
     @Id

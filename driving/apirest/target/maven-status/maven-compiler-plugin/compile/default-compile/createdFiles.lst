@@ -1,0 +1,12 @@
+com\repdis\driving\mappers\OrderBasicDtoMapper.class
+com\repdis\driving\dto\ClientDTO.class
+com\repdis\driving\adapters\ServiceOrderRestController.class
+com\repdis\driving\dto\ServiceOrderDTO$ServiceOrderDTOBuilder.class
+com\repdis\driving\dto\ServiceOrderDTO.class
+com\repdis\driving\adapters\ClientRestController.class
+com\repdis\driving\mappers\ClientDtoMapper.class
+com\repdis\driving\dto\OrderResponseDTO.class
+com\repdis\driving\mappers\ServiceOrderDtoMapper.class
+com\repdis\driving\dto\OrderDTO.class
+com\repdis\driving\dto\OrderResponseDTO$OrderResponseDTOBuilder.class
+com\repdis\driving\mappers\OrderDtoMapper.class

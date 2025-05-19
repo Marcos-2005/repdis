@@ -5,8 +5,7 @@ import lombok.*;
 
 @Entity
 @Table(name = "dispositivos")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -16,23 +15,10 @@ public class DeviceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String type;
-
     private String brand;
     private String model;
-
-    @Column(name = "serial_number", nullable = false, unique = true)
-    private String serialNumber;
-
-    private String description;
+    @Column(name = "serial_number")
+    private String serial;
     private String password;
-
-    @Column(name = "image_url")
-    private String imageUrl;
-
-    @ManyToOne
-    @JoinColumn(name = "client_id", nullable = false)
-    private ClientEntity client;
 }
-

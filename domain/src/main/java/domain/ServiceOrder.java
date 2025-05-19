@@ -19,4 +19,8 @@ public class ServiceOrder {
     private Double cost;
     private Long deviceId;
     private Long adminId;
+
+    private Client client;
+    private Device device;
+
 }

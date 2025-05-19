@@ -11,6 +11,7 @@
         <module name="application" />
         <module name="mysqlrepository" />
         <module name="apirest" />
+        <module name="domain" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="apirest" options="-parameters" />
       <module name="application" options="-parameters" />
+      <module name="domain" options="-parameters" />
       <module name="driven-mysql-repository" options="-parameters" />
       <module name="driving-api-rest" options="-parameters" />
       <module name="elevate-boot" options="-parameters" />

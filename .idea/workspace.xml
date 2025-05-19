@@ -5,11 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49cf3f8-6aea-4cce-a6bd-2569ba9f9250" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/domain/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot/src/main/java/com/repdis/boot/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot/src/main/java/com/repdis/boot/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/boot/src/main/java/com/repdis/boot/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/boot/src/main/java/com/repdis/boot/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/domain/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/domain/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/domain/ServiceOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/ServiceOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/domain/enums/OrderDifficulty.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/enums/OrderDifficulty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/domain/enums/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/enums/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/boot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/src/main/resources/sql/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/boot/src/main/resources/sql/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/src/main/resources/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/boot/src/main/resources/sql/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/AdminEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/AdminEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/ClientEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/ClientEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/DeviceEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/DeviceEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/ServiceOrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/ServiceOrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/ServiceOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/ServiceOrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/ServiceOrderDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/ServiceOrderDtoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,13 +75,15 @@
     &quot;git-widget-placeholder&quot;: &quot;feature/REP-007-orders-frontend&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/MARCOS/OneDrive/Documentos/proyecto_final/repdis/frontend/src/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\domain\src\main\java\domain" />
+      <recent name="C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\domain\src.main.java.domain" />
       <recent name="C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\frontend\src\img" />
       <recent name="C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\boot\src\main\resources\sql" />
     </key>
