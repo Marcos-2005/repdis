@@ -19,7 +19,7 @@ public class ServiceOrder {
     private Double cost;
     private Long deviceId;
     private Long adminId;
-
+    private Long clientId;
     private Client client;
     private Device device;
 

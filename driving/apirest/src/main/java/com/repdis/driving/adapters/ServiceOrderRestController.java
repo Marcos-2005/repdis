@@ -24,4 +24,10 @@ public class ServiceOrderRestController {
                 .map(ServiceOrderDtoMapper::toDto)
                 .collect(Collectors.toList());
     }
+
+    @PostMapping
+    public void createOrder(@RequestBody ServiceOrderDTO orderDTO) {
+        ServiceOrder domainOrder = ServiceOrderDtoMapper.toDomain(orderDTO);
+        serviceOrderUseCase.createServiceOrder(domainOrder);
+    }
 }

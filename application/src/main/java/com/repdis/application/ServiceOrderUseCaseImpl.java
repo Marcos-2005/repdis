@@ -18,4 +18,9 @@ public class ServiceOrderUseCaseImpl implements ServiceOrderServicePort {
     public List<ServiceOrder> getAllServiceOrders() {
         return serviceOrderRepository.findAll();
     }
+
+    @Override
+    public ServiceOrder createServiceOrder(ServiceOrder order) {
+        return serviceOrderRepository.save(order);
+    }
 }

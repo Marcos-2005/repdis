@@ -6,6 +6,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
 public class ServiceOrderDTO {
     private Long id;
     private String entryDate;
@@ -14,7 +15,7 @@ public class ServiceOrderDTO {
     private Double cost;
     private Long deviceId;
     private Long adminId;
-
+    private Long clientId;
     private String clientName;
     private String deviceType;
 }

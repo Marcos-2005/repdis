@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface ServiceOrderRepositoryPort {
     List<ServiceOrder> findAll();
+    ServiceOrder save(ServiceOrder order);
 }

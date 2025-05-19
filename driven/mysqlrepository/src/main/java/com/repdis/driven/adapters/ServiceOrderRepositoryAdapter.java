@@ -21,4 +21,9 @@ public class ServiceOrderRepositoryAdapter implements ServiceOrderRepositoryPort
                 .map(ServiceOrderEntityMapper::toDomain)
                 .toList();
     }
+
+    @Override
+    public ServiceOrder save(ServiceOrder order) {
+        return null;
+    }
 }
