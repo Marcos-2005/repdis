@@ -110,7 +110,7 @@ function deleteOrder() {
         if (confirmDelete) {
             console.log(`Simulando eliminación de orden con ID ${id}`);
             alert(`Simulación: orden ${id} eliminada (ver consola)`);
-            newOrder(); // Limpieza de form tras la eliminación
+            newOrder();
         }
     } else {
         alert('No hay una orden seleccionada para eliminar.');
