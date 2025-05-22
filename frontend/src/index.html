@@ -21,14 +21,21 @@
     </nav>
 </header>
 
+
 <main id="main-content">
     <section class="form-section">
         <form id="order-form">
+            <div class="form-buttons">
+                <button type="button" onclick="saveOrder()">Guardar</button>
+                <button type="button" onclick="updateOrder()">Actualizar</button>
+                <button type="button" onclick="deleteOrder()">Eliminar</button>
+            </div>
             <fieldset>
                 <legend>Orden de Servicio</legend>
                 <label>ID: <input type="text" id="order-id" disabled></label>
                 <label>Fecha de Entrada: <input type="text" id="entry-date" disabled></label>
             </fieldset>
+
 
             <fieldset>
                 <legend>Datos del Cliente</legend>
@@ -40,6 +47,7 @@
                 <input type="hidden" id="client-id">
             </fieldset>
 
+
             <fieldset>
                 <legend>Datos del Dispositivo</legend>
                 <label>Tipo: <input type="text" id="device-type" required></label>
@@ -49,6 +57,7 @@
                 <label>Contraseña: <input type="text" id="device-password"></label>
                 <input type="hidden" id="device-id">
             </fieldset>
+
 
             <fieldset>
                 <legend>Orden</legend>
@@ -74,14 +83,12 @@
                 </label>
             </fieldset>
 
-            <div class="form-buttons">
-                <button type="button" onclick="newOrder()">Nuevo</button>
-                <button type="button" onclick="saveOrder()">Guardar</button>
-                <button type="button" onclick="updateOrder()">Actualizar</button>
-                <button type="button" onclick="deleteOrder()">Eliminar</button>
-            </div>
+
+
+
         </form>
     </section>
+
 
     <section class="list-section">
         <h2>Lista de Órdenes de Servicio</h2>
@@ -95,6 +102,9 @@
                     <option value="asc">Antiguas primero</option>
                 </select>
             </label>
+        </div>
+        <div class="form-buttons">
+            <button type="button" id="new-order-btn" onclick="newOrder()">Nuevo</button>
         </div>
         <table id="orders-table">
             <thead>
