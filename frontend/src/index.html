@@ -104,7 +104,7 @@
             </label>
         </div>
         <div class="form-buttons">
-            <button type="button" id="new-order-btn" onclick="newOrder()">Nuevo</button>
+            <button type="button" id="new-order-btn" onclick="showNewOrderModal()">Nuevo</button>
         </div>
         <table id="orders-table">
             <thead>
@@ -124,5 +124,24 @@
 </main>
 
 <script src="js/orders.js" defer></script>
+
+<div id="new-order-modal" class="modal hidden">
+    <div class="modal-content">
+        <h3>¿Cómo quieres crear la orden de servicio?</h3>
+        <div class="modal-options">
+            <button onclick="createEmptyOrder()">Desde cero</button>
+            <button onclick="showClientSelector()">Seleccionar cliente existente</button>
+        </div>
+        <div id="client-selection" class="hidden">
+            <h4>Selecciona un cliente</h4>
+            <table id="client-selection-table">
+                <thead><tr><th>Nombre</th></tr></thead>
+                <tbody id="client-selection-body"></tbody>
+            </table>
+        </div>
+        <button class="close-btn" onclick="closeNewOrderModal()">Cerrar</button>
+    </div>
+</div>
+
 </body>
 </html>

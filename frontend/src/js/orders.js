@@ -50,23 +50,88 @@ function fillOrderForm(order) {
 
     document.getElementById('client-name').value = order.client?.name || '';
     document.getElementById('client-id').value = order.client?.id || '';
-    document.getElementById('client-dni').value = '';
-    document.getElementById('client-phone').value = '';
-    document.getElementById('client-email').value = '';
-    document.getElementById('client-address').value = '';
+    document.getElementById('client-dni').value = order.client?.dni || '';
+    document.getElementById('client-phone').value = order.client?.phone || '';
+    document.getElementById('client-email').value = order.client?.email || '';
+    document.getElementById('client-address').value = order.client?.address || '';
 
     document.getElementById('device-type').value = order.device?.type || '';
     document.getElementById('device-id').value = order.device?.id || '';
-    document.getElementById('device-brand').value = '';
-    document.getElementById('device-model').value = '';
-    document.getElementById('device-serial').value = '';
-    document.getElementById('device-password').value = '';
+    document.getElementById('device-brand').value = order.device?.brand || '';
+    document.getElementById('device-model').value = order.device?.model || '';
+    document.getElementById('device-serial').value = order.device?.serialNumber || '';
+    document.getElementById('device-password').value = order.device?.password || '';
 }
 
-function newOrder() {
-    document.getElementById('order-form').reset();
-    document.getElementById('order-id').value = '';
-    document.getElementById('entry-date').value = '';
+function showNewOrderModal() {
+    document.getElementById("new-order-modal").classList.remove("hidden");
+    document.getElementById("client-selection").classList.add("hidden");
+}
+
+function closeNewOrderModal() {
+    document.getElementById("new-order-modal").classList.add("hidden");
+}
+
+function createEmptyOrder() {
+    clearForm();
+    closeNewOrderModal();
+}
+
+function showClientSelector() {
+    document.getElementById("client-selection").classList.remove("hidden");
+
+    fetch("http://localhost:8080/clients")
+        .then(res => res.json())
+        .then(clients => {
+            const tbody = document.getElementById("client-selection-body");
+            tbody.innerHTML = "";
+            clients.forEach(c => {
+                const row = document.createElement("tr");
+                const cell = document.createElement("td");
+                cell.textContent = c.name;
+                row.appendChild(cell);
+                row.addEventListener("click", () => selectClient(c));
+                tbody.appendChild(row);
+            });
+        });
+}
+
+function selectClient(client) {
+    clearForm();
+    document.getElementById("client-name").value = client.name;
+    document.getElementById("client-id").value = client.id;
+    document.getElementById("client-dni").value = client.dni;
+    document.getElementById("client-phone").value = client.phone;
+    document.getElementById("client-email").value = client.email;
+    document.getElementById("client-address").value = client.address;
+
+    closeNewOrderModal();
+}
+
+function clearForm() {
+    document.getElementById("order-id").value = "";
+    document.getElementById("entry-date").value = "";
+
+    document.getElementById("client-id").value = "";
+    document.getElementById("client-name").value = "";
+    document.getElementById("client-dni").value = "";
+    document.getElementById("client-phone").value = "";
+    document.getElementById("client-email").value = "";
+    document.getElementById("client-address").value = "";
+
+    document.getElementById("device-id").value = "";
+    document.getElementById("device-type").value = "";
+    document.getElementById("device-brand").value = "";
+    document.getElementById("device-model").value = "";
+    document.getElementById("device-serial").value = "";
+    document.getElementById("device-password").value = "";
+
+    document.getElementById("order-description").value = "";
+    document.getElementById("order-cost").value = "";
+    document.getElementById("order-difficulty").value = "MEDIUM";
+    document.getElementById("order-status").value = "CREATED";
+    document.getElementById("order-admin").selectedIndex = 0;
+    document.getElementById("client-name").focus();
 }
 
 async function saveOrder() {
@@ -118,7 +183,7 @@ async function saveOrder() {
         if (!response.ok) throw new Error('Error al guardar la orden');
         alert(id ? 'Orden actualizada' : 'Orden creada con éxito');
         loadOrders();
-        newOrder();
+        clearForm();
     } catch (error) {
         console.error('Error al guardar la orden:', error);
         alert('No se pudo guardar la orden.');
@@ -136,7 +201,7 @@ async function deleteOrder(id) {
 
         if (!response.ok) throw new Error("Error eliminando orden");
         alert("Orden eliminada con éxito");
-        newOrder();
+        clearForm();
         loadOrders();
     } catch (error) {
         console.error("Error al eliminar orden:", error);
