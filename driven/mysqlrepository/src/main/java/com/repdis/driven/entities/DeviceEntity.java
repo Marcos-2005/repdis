@@ -19,6 +19,13 @@ public class DeviceEntity {
     private String brand;
     private String model;
     @Column(name = "serial_number")
-    private String serial;
+    private String serialNumber;
     private String password;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    private ClientEntity client;
+
+    @Column(name = "client_id", insertable = false, updatable = false)
+    private Long clientId;
 }

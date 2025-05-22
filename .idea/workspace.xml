@@ -5,8 +5,117 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49cf3f8-6aea-4cce-a6bd-2569ba9f9250" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/AdminUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/AdminRepositoryPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driving/AdminServicePort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/AdminRepositoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/AdminEntityMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/DeviceEntityMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/repositories/AdminJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/repositories/DeviceJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/adapters/AdminRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/AdminDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/DeviceDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/AdminDtoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/DeviceDtoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ServiceOrderUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ServiceOrderUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/ServiceOrderRepositoryPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/ServiceOrderRepositoryPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ClientUseCaseImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ServiceOrderUseCaseImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ports/driven/ClientRepositoryPort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ports/driven/OrderRepositoryPort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ports/driven/ServiceOrderRepositoryPort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ports/driving/ClientServicePort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ports/driving/OrderServicePort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/ports/driving/ServiceOrderServicePort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/services/ClientService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/com/repdis/application/services/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/repdis-application-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/boot/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/classes/com/repdis/boot/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/classes/com/repdis/boot/CorsConfig$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/classes/com/repdis/boot/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/classes/com/repdis/boot/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/classes/sql/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/classes/sql/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/target/repdis-boot-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/domain/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/domain/Device.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/domain/ServiceOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/domain/ServiceOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/Admin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/Client$ClientBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/Device$DeviceBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/Device.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/ServiceOrder$ServiceOrderBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/ServiceOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/enums/OrderDifficulty.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/domain/enums/OrderStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/domain-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/AdminEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/AdminEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/DeviceEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/DeviceEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/ServiceOrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/ServiceOrderEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ClientEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ClientEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/adapters/ClientRepositoryAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/adapters/OrderRepositoryAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/AdminEntity$AdminEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/AdminEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/ClientEntity$ClientEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/ClientEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/DeviceEntity$DeviceEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/DeviceEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/OrderEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/ServiceOrderEntity$ServiceOrderEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/entities/ServiceOrderEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/mappers/ClientEntityMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/mappers/OrderEntityMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/mappers/ServiceOrderEntityMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/repositories/ClientJpaRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/repositories/OrderJpaRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/classes/com/repdis/driven/repositories/ServiceOrderJpaRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/target/repdis-driven-mysqlrepository-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/ClientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/ClientDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/OrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/OrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/ServiceOrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/dto/ServiceOrderDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/ClientDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/ClientDtoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/OrderBasicDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/OrderBasicDtoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/ServiceOrderDtoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/mappers/ServiceOrderDtoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/adapters/ClientRestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/adapters/ServiceOrderRestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/dto/ClientDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/dto/OrderDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/dto/OrderResponseDTO$OrderResponseDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/dto/OrderResponseDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/dto/ServiceOrderDTO$ServiceOrderDTOBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/dto/ServiceOrderDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/mappers/ClientDtoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/mappers/OrderBasicDtoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/mappers/OrderDtoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/classes/com/repdis/driving/mappers/ServiceOrderDtoMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/target/repdis-driving-apirest-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/orders.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +127,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,7 +158,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/REP-007-orders-frontend&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/REP-008-db-persistence-fix&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/MARCOS/OneDrive/Documentos/proyecto_final/repdis/frontend/src/Main.java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,

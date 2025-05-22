@@ -1,4 +1,4 @@
-package domain;
+package com.repdis.driving.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Admin {
+public class DeviceDTO {
     private Long id;
-    private String name;
-    private String username;
+    private String type;
+    private String brand;
+    private String model;
+    private String serialNumber;
     private String password;
-
 }

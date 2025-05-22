@@ -17,5 +17,6 @@ public class AdminEntity {
 
     private String name;
     private String username;
+    @Column(name = "password_hash")
     private String password;
 }

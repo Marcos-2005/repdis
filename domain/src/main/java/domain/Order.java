@@ -19,8 +19,8 @@ public class Order {
     private OrderDifficulty difficulty;
     private Double cost;
 
-    private Client client;        // datos del cliente
-    private Device device;        // datos del dispositivo
-    private Admin admin;          // técnico que la creó
+    private Client client;
+    private Device device;
+    private Admin admin;
 }
 

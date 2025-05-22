@@ -17,8 +17,8 @@ public class OrderBasicDtoMapper {
                 OrderDifficulty.valueOf(dto.getDifficulty()),
                 dto.getCost() != null ? dto.getCost().doubleValue() : null,
                 null,  // client se gestiona aparte
-                null,  // device se gestiona aparte
-                null   // admin se gestiona aparte
+                null,  // device tmb
+                null   // admin tmb
         );
     }
 
@@ -29,8 +29,6 @@ public class OrderBasicDtoMapper {
         dto.setStatus(order.getStatus().name());
         dto.setDifficulty(order.getDifficulty().name());
         dto.setCost(order.getCost() != null ? BigDecimal.valueOf(order.getCost()) : null);
-
-        // Estos datos están en null en este mapper, se usarán en otro más completo
         dto.setClientName(null);
         dto.setClientDni(null);
         dto.setDeviceType(null);

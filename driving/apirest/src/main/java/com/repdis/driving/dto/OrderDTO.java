@@ -12,16 +12,13 @@ public class OrderDTO {
     private String difficulty;
     private BigDecimal cost;
 
-    // Datos del cliente
     private String clientName;
     private String clientDni;
 
-    // Datos del dispositivo
     private String deviceType;
     private String deviceBrand;
     private String deviceModel;
     private String deviceSerialNumber;
 
-    // Nombre del administrador que creó la orden
     private String adminName;
 }

@@ -24,25 +24,15 @@ public class ServiceOrderEntity {
     private String difficulty;
     private Double cost;
 
-    // Relaciones
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "device_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "device_id", nullable = false)
     private DeviceEntity device;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "admin_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "admin_id", nullable = false)
     private AdminEntity admin;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "client_id", nullable = false)
     private ClientEntity client;
-
-    @Column(name = "device_id")
-    private Long deviceId;
-
-    @Column(name = "admin_id")
-    private Long adminId;
-
-    @Column(name = "client_id")
-    private Long clientId;
 }

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class ServiceOrder {
     private Long id;
     private LocalDateTime entryDate;
@@ -22,5 +22,6 @@ public class ServiceOrder {
     private Long clientId;
     private Client client;
     private Device device;
+    private Admin admin;
 
 }

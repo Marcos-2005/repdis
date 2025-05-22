@@ -21,13 +21,13 @@ public class ClientEntityMapper {
     }
 
     public static ClientEntity toEntity(Client client) {
-        return new ClientEntity(
-                client.getId(),
-                client.getName(),
-                client.getDni(),
-                client.getPhone(),
-                client.getEmail(),
-                client.getAddress()
-        );
+        return ClientEntity.builder()
+                .id(client.getId())
+                .name(client.getName())
+                .email(client.getEmail())
+                .dni(client.getDni())
+                .address(client.getAddress())
+                .phone(client.getPhone())
+                .build();
     }
 }

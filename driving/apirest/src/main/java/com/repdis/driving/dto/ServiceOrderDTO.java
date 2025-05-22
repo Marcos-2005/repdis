@@ -13,9 +13,8 @@ public class ServiceOrderDTO {
     private String status;
     private String difficulty;
     private Double cost;
-    private Long deviceId;
     private Long adminId;
-    private Long clientId;
-    private String clientName;
-    private String deviceType;
+
+    private ClientDTO client;
+    private DeviceDTO device;
 }

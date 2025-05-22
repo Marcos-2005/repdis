@@ -83,15 +83,46 @@ docker/sql/*.sql
 docker/mysql_data/
 *.pid
 
-# === SISTEMAS ===
+# === SISTEMAS OPERATIVOS ===
 .DS_Store
 Thumbs.db
 
-# === FRONTEND
+# === FRONTEND ===
 node_modules/
 dist/
 build/
 .env
 .env.local
-gitignore
-*.iml
+.env.development
+.env.production
+.vite/
+coverage/
+*.log
+
+# === ARCHIVOS TEMPORALES Y MISC ===
+*.bak
+*.swp
+*~
+*.tmp
+*.rej
+*.orig
+*.swo
+*.swn
+
+# === ARCHIVOS ERRÓNEAMENTE CREADOS O GENERADOS AUTOMÁTICAMENTE ===
+*.class
+*.jar
+*.war
+*.ear
+*.log
+*.cache
+*.pid
+*.seed
+*.gz
+*.out
+
+# === BACKEND ===
+**/target/
+*.class
+*.jar
+*.h2.db

@@ -1,23 +1,17 @@
 package domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder(toBuilder = true)
 public class Device {
     private Long id;
     private String type;
     private String brand;
     private String model;
     private String serialNumber;
-    private String description;
-    private String imageUrl;
     private String password;
     private Client client;
 }
-

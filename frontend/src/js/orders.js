@@ -11,16 +11,24 @@ async function loadOrders() {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${order.id}</td>
-                <td>${order.clientName || 'Sin nombre'}</td>
-                <td>${order.deviceType || 'Sin tipo'}</td>
+                <td>${order.client?.name || 'Sin nombre'}</td>
+                <td>${order.device?.type || 'Sin tipo'}</td>
                 <td>${order.status}</td>
                 <td>${order.difficulty}</td>
                 <td>${order.entryDate}</td>
             `;
 
-            row.addEventListener('click', () => {
-                fillOrderForm(order);
-            });
+            const viewBtn = document.createElement('button');
+            viewBtn.textContent = '👁️';
+            viewBtn.style.backgroundColor = 'green';
+            viewBtn.onclick = () => fillOrderForm(order);
+            row.appendChild(viewBtn);
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = '🗑️';
+            deleteBtn.style.backgroundColor = 'red';
+            deleteBtn.onclick = () => deleteOrder(order.id);
+            row.appendChild(deleteBtn);
 
             tbody.appendChild(row);
         });
@@ -37,18 +45,18 @@ function fillOrderForm(order) {
     document.getElementById('entry-date').value = order.entryDate || '';
     document.getElementById('order-cost').value = order.cost || '';
     document.getElementById('order-difficulty').value = order.difficulty || 'MEDIUM';
-    document.getElementById('order-status').value = order.status || 'PENDING';
+    document.getElementById('order-status').value = order.status || 'CREATED';
     document.getElementById('order-admin').value = order.adminId || '';
 
-    document.getElementById('client-name').value = order.clientName || '';
-    document.getElementById('client-id').value = order.clientId || '';
+    document.getElementById('client-name').value = order.client?.name || '';
+    document.getElementById('client-id').value = order.client?.id || '';
     document.getElementById('client-dni').value = '';
     document.getElementById('client-phone').value = '';
     document.getElementById('client-email').value = '';
     document.getElementById('client-address').value = '';
 
-    document.getElementById('device-type').value = order.deviceType || '';
-    document.getElementById('device-id').value = order.deviceId || '';
+    document.getElementById('device-type').value = order.device?.type || '';
+    document.getElementById('device-id').value = order.device?.id || '';
     document.getElementById('device-brand').value = '';
     document.getElementById('device-model').value = '';
     document.getElementById('device-serial').value = '';
@@ -59,24 +67,48 @@ function newOrder() {
     document.getElementById('order-form').reset();
     document.getElementById('order-id').value = '';
     document.getElementById('entry-date').value = '';
-    console.log('Formulario listo para nueva orden');
 }
 
 async function saveOrder() {
+    const id = document.getElementById('order-id').value;
+
+    const clientName = document.getElementById('client-name').value;
+    const deviceType = document.getElementById('device-type').value;
+    if (!clientName || !deviceType) {
+        alert("Nombre del cliente y tipo de dispositivo son obligatorios");
+        return;
+    }
+
     const order = {
-        clientId: parseInt(document.getElementById('client-id')?.value) || null,
-        deviceId: parseInt(document.getElementById('device-id')?.value) || null,
-        entryDate: new Date().toISOString(),
+        id: id ? parseInt(id) : null,
+        entryDate: document.getElementById('entry-date').value || new Date().toISOString(),
         status: document.getElementById('order-status').value,
         difficulty: document.getElementById('order-difficulty').value,
         cost: parseFloat(document.getElementById('order-cost').value) || 0,
         adminId: parseInt(document.getElementById('order-admin').value) || null,
-        description: document.getElementById('order-description').value || ''
+
+        client: {
+            id: parseInt(document.getElementById('client-id').value) || null,
+            name: clientName,
+            dni: document.getElementById('client-dni').value,
+            phone: document.getElementById('client-phone').value,
+            email: document.getElementById('client-email').value,
+            address: document.getElementById('client-address').value
+        },
+
+        device: {
+            id: parseInt(document.getElementById('device-id').value) || null,
+            type: deviceType,
+            brand: document.getElementById('device-brand').value,
+            model: document.getElementById('device-model').value,
+            serialNumber: document.getElementById('device-serial').value,
+            password: document.getElementById('device-password').value
+        }
     };
 
     try {
         const response = await fetch('http://localhost:8080/orders', {
-            method: 'POST',
+            method: id ? 'PUT' : 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -84,48 +116,55 @@ async function saveOrder() {
         });
 
         if (!response.ok) throw new Error('Error al guardar la orden');
-
-        alert('Orden creada con éxito');
-        loadOrders(); // refresca la tabla
+        alert(id ? 'Orden actualizada' : 'Orden creada con éxito');
+        loadOrders();
+        newOrder();
     } catch (error) {
         console.error('Error al guardar la orden:', error);
-        alert('No se pudo crear la orden.');
+        alert('No se pudo guardar la orden.');
     }
 }
 
-function updateOrder() {
-    const id = document.getElementById('order-id').value;
-    if (id) {
-        console.log('Simulando actualización de orden:', collectFormData());
-        alert('Simulación: orden actualizada (ver consola)');
-    } else {
-        alert('No hay ID, no se puede actualizar una orden que no existe.');
+async function deleteOrder(id) {
+    try {
+        const confirmDelete = confirm(`¿Eliminar la orden con ID ${id}?`);
+        if (!confirmDelete) return;
+
+        const response = await fetch(`http://localhost:8080/orders/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) throw new Error("Error eliminando orden");
+        alert("Orden eliminada con éxito");
+        newOrder();
+        loadOrders();
+    } catch (error) {
+        console.error("Error al eliminar orden:", error);
+        alert("No se pudo eliminar la orden.");
     }
 }
 
-function deleteOrder() {
-    const id = document.getElementById('order-id').value;
-    if (id) {
-        const confirmDelete = confirm(`¿Seguro que quieres eliminar la orden con ID ${id}?`);
-        if (confirmDelete) {
-            console.log(`Simulando eliminación de orden con ID ${id}`);
-            alert(`Simulación: orden ${id} eliminada (ver consola)`);
-            newOrder();
-        }
-    } else {
-        alert('No hay una orden seleccionada para eliminar.');
+async function loadAdmins() {
+    try {
+        const response = await fetch('http://localhost:8080/admins');
+        if (!response.ok) throw new Error('No se pudo cargar la lista de administradores.');
+
+        const admins = await response.json();
+        const select = document.getElementById('order-admin');
+        select.innerHTML = '<option value="">-- Selecciona un admin --</option>';
+
+        admins.forEach(admin => {
+            const option = document.createElement('option');
+            option.value = admin.id;
+            option.textContent = admin.name;
+            select.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error cargando administradores:', error);
     }
 }
 
-function collectFormData() {
-    return {
-        id: document.getElementById('order-id').value,
-        entryDate: document.getElementById('entry-date').value,
-        cost: document.getElementById('order-cost').value,
-        difficulty: document.getElementById('order-difficulty').value,
-        status: document.getElementById('order-status').value,
-        adminId: document.getElementById('order-admin').value,
-    };
-}
-
-document.addEventListener('DOMContentLoaded', loadOrders);
+document.addEventListener('DOMContentLoaded', () => {
+    loadOrders();
+    loadAdmins();
+});

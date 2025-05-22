@@ -1,28 +1,29 @@
 package com.repdis.driving.mappers;
 
-import domain.Client;
 import com.repdis.driving.dto.ClientDTO;
+import domain.Client;
 
 public class ClientDtoMapper {
-    public static ClientDTO toDto(Client client) {
-        return new ClientDTO(
-                client.getId(),
-                client.getName(),
-                client.getDni(),
-                client.getPhone(),
-                client.getEmail(),
-                client.getAddress()
-        );
-    }
 
     public static Client toDomain(ClientDTO dto) {
-        return new Client(
-                dto.getId(),
-                dto.getName(),
-                dto.getDni(),
-                dto.getPhone(),
-                dto.getEmail(),
-                dto.getAddress()
-        );
+        return Client.builder()
+                .id(dto.getId())
+                .name(dto.getName())
+                .dni(dto.getDni())
+                .phone(dto.getPhone())
+                .email(dto.getEmail())
+                .address(dto.getAddress())
+                .build();
+    }
+
+    public static ClientDTO toDto(Client client) {
+        return ClientDTO.builder()
+                .id(client.getId())
+                .name(client.getName())
+                .dni(client.getDni())
+                .phone(client.getPhone())
+                .email(client.getEmail())
+                .address(client.getAddress())
+                .build();
     }
 }
