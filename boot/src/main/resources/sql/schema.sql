@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS empresas (
 CREATE TABLE IF NOT EXISTS ordenes_servicios (
     id BIGINT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     entry_date DATETIME NOT NULL,
-    status VARCHAR(20) DEFAULT 'PENDING',
+    status VARCHAR(20) DEFAULT 'CREATED',
     difficulty VARCHAR(20) DEFAULT 'MEDIUM',
     cost DECIMAL(10, 2),
     description TEXT,

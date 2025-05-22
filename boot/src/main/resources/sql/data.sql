@@ -35,9 +35,9 @@ INSERT INTO empresas (name, address, phone, email, iva_rate, welcome_message, co
 
 -- Órdenes de servicio (4) → ¡añadimos el client_id!
 INSERT INTO ordenes_servicios (entry_date, status, difficulty, cost, description, device_id, admin_id, client_id) VALUES
-('2025-05-01 10:00:00', 'PENDING', 'MEDIUM', 150.00, 'Cambio de pantalla y limpieza interna', 1, 1, 1),
+('2025-05-01 10:00:00', 'CREATED', 'MEDIUM', 150.00, 'Cambio de pantalla y limpieza interna', 1, 1, 1),
 ('2025-05-03 11:30:00', 'IN_PROGRESS', 'HARD', 200.00, 'Sustitución de placa base', 2, 2, 2),
-('2025-05-04 09:45:00', 'PENDING', 'EASY', 100.00, 'Reemplazo de batería', 3, 3, 2),
+('2025-05-04 09:45:00', 'CREATED', 'EASY', 100.00, 'Reemplazo de batería', 3, 3, 2),
 ('2025-05-06 12:00:00', 'COMPLETED', 'HARD', 170.00, 'Reinstalación de sistema operativo', 2, 1, 2);
 
 -- Diagnósticos

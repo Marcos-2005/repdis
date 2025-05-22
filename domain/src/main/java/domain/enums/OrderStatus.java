@@ -1,7 +1,7 @@
 package domain.enums;
 
 public enum OrderStatus {
-    PENDING,
+    CREATED,
     IN_PROGRESS,
     COMPLETED
 }
