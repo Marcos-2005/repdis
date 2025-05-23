@@ -10,4 +10,5 @@ public interface ServiceOrderRepositoryPort {
     ServiceOrder save(ServiceOrder order);
     Device saveDevice(Device device);
     Client saveClient(Client client);
+    void deleteById(Long id);
 }

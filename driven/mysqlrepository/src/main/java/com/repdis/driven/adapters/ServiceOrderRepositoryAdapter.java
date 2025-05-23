@@ -1,5 +1,6 @@
 package com.repdis.driven.adapters;
 
+import com.repdis.application.ports.driven.DiagnosticoRepositoryPort;
 import com.repdis.application.ports.driven.ServiceOrderRepositoryPort;
 import com.repdis.driven.entities.ClientEntity;
 import com.repdis.driven.entities.DeviceEntity;
@@ -15,6 +16,7 @@ import domain.Device;
 import domain.ServiceOrder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -29,6 +31,8 @@ public class ServiceOrderRepositoryAdapter implements ServiceOrderRepositoryPort
     private final ClientEntityMapper clientEntityMapper;
     private final DeviceEntityMapper deviceEntityMapper;
     private final ServiceOrderEntityMapper serviceOrderEntityMapper;
+    private final DiagnosticoRepositoryPort diagnosticoRepository;
+
 
     @Override
     public List<ServiceOrder> findAll() {
@@ -66,5 +70,12 @@ public class ServiceOrderRepositoryAdapter implements ServiceOrderRepositoryPort
         DeviceEntity entity = deviceEntityMapper.toEntity(device);
         DeviceEntity saved = deviceRepository.save(entity);
         return deviceEntityMapper.toDomain(saved);
+    }
+
+    @Transactional
+    @Override
+    public void deleteById(Long id) {
+        diagnosticoRepository.deleteByServiceOrderId(id);
+        orderRepository.deleteById(id);
     }
 }

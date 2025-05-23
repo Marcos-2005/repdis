@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49cf3f8-6aea-4cce-a6bd-2569ba9f9250" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/DiagnosticoRepositoryPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/DiagnosticoRepositoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/entities/DiagnosticoEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/repositories/DiagnosticoJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ServiceOrderUseCaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ServiceOrderUseCaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/ServiceOrderRepositoryPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/ServiceOrderRepositoryPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driving/ServiceOrderServicePort.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driving/ServiceOrderServicePort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/adapters/ServiceOrderRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/adapters/ServiceOrderRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/orders.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

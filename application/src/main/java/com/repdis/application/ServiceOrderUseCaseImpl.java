@@ -51,4 +51,9 @@ public class ServiceOrderUseCaseImpl implements ServiceOrderServicePort {
 
         return serviceOrderRepository.save(order);
     }
+
+    @Override
+    public void deleteOrder(Long id) {
+        serviceOrderRepository.deleteById(id);
+    }
 }

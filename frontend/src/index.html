@@ -25,10 +25,6 @@
 <main id="main-content">
     <section class="form-section">
         <form id="order-form">
-            <div class="form-buttons">
-                <button type="button" onclick="saveOrder()">Guardar</button>
-                <button type="button" onclick="deleteOrder()">Eliminar</button>
-            </div>
             <fieldset>
                 <legend>Orden de Servicio</legend>
                 <label>ID: <input type="text" id="order-id" disabled></label>
@@ -104,6 +100,7 @@
         </div>
         <div class="form-buttons">
             <button type="button" id="new-order-btn" onclick="showNewOrderModal()">Nuevo</button>
+            <button type="button" onclick="saveOrder()">Guardar</button>
         </div>
         <table id="orders-table">
             <thead>

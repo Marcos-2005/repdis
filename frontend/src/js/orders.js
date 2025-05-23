@@ -184,25 +184,6 @@ async function saveOrder() {
     }
 }
 
-async function deleteOrder(id) {
-    try {
-        const confirmDelete = confirm(`¿Eliminar la orden con ID ${id}?`);
-        if (!confirmDelete) return;
-
-        const response = await fetch(`http://localhost:8080/orders/${id}`, {
-            method: 'DELETE'
-        });
-
-        if (!response.ok) throw new Error("Error eliminando orden");
-        alert("Orden eliminada con éxito");
-        clearForm();
-        loadOrders();
-    } catch (error) {
-        console.error("Error al eliminar orden:", error);
-        alert("No se pudo eliminar la orden.");
-    }
-}
-
 async function loadAdmins() {
     try {
         const response = await fetch('http://localhost:8080/admins');
@@ -220,6 +201,25 @@ async function loadAdmins() {
         });
     } catch (error) {
         console.error('Error cargando administradores:', error);
+    }
+}
+
+async function deleteOrder(id) {
+    try {
+        const confirmDelete = confirm(`¿Eliminar la orden con ID ${id}?`);
+        if (!confirmDelete) return;
+
+        const response = await fetch(`http://localhost:8080/orders/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) throw new Error("Error eliminando orden");
+        alert("Orden eliminada con éxito");
+        clearForm();
+        loadOrders();
+    } catch (error) {
+        console.error("Error al eliminar orden:", error);
+        alert("No se pudo eliminar la orden.");
     }
 }
 

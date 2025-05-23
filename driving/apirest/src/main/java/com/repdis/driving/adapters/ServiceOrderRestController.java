@@ -37,4 +37,10 @@ public class ServiceOrderRestController {
         ServiceOrder updatedOrder = serviceOrderUseCase.createServiceOrder(ServiceOrderDtoMapper.toDomain(dto));
         return ResponseEntity.ok(ServiceOrderDtoMapper.toDto(updatedOrder));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
+        serviceOrderUseCase.deleteOrder(id);
+        return ResponseEntity.noContent().build();
+    }
 }
