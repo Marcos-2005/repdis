@@ -1,4 +1,4 @@
-/* General layout */
+/* El general layout */
 body {
    font-family: Arial, sans-serif;
    margin: 0;
@@ -8,7 +8,7 @@ body {
    flex-direction: column;
 }
 
-/* Header con logo y nombre */
+/* El header con logo y nombre */
 header {
    background-color: #2c3e50;
    color: white;
@@ -30,7 +30,7 @@ header h1 {
    align-items: center;
 }
 
-/* Menú */
+/* El menú */
 nav ul {
    list-style: none;
    display: flex;
@@ -44,7 +44,7 @@ nav a {
    text-decoration: none;
 }
 
-/* Main layout dividido en 2 columnas */
+/* Para que todo se me ponga como yo quiero uno a la derecha otro izquierda */
 main {
    display: flex;
    flex: 1;
@@ -53,7 +53,7 @@ main {
    background-color: #f4f4f4;
 }
 
-/* Formulario de la izquierda */
+/* El formulario de la izquierda */
 #order-form {
    flex: 3;
    background-color: white;
@@ -64,7 +64,7 @@ main {
    gap: 0.5em;
 }
 
-/* Lista de órdenes a la derecha */
+/* La lista de órdenes a la derecha */
 #order-list-panel {
    flex: 2;
    background-color: white;
@@ -74,7 +74,7 @@ main {
    flex-direction: column;
 }
 
-/* Filtros */
+/* Para filtros */
 #filters {
    display: flex;
    flex-direction: column;
@@ -88,10 +88,14 @@ main {
    font-size: 0.9em;
 }
 
-/* Tabla de órdenes */
+/* Para la tabla de órdenes */
 #orders-table {
    width: 100%;
    border-collapse: collapse;
+}
+
+.selected-row {
+    background-color: yellow !important;
 }
 
 #orders-table th,
@@ -107,7 +111,7 @@ main {
  margin-bottom: 1rem;
 }
 
-/* Botones debajo de la lista */
+/* Para los botones de la lista */
 #list-buttons {
    margin-top: auto;
    display: flex;
@@ -153,7 +157,7 @@ input, select, textarea {
 .logo-container img {
    height: 35px;
 }
-/* Panel clientes */
+/* para los paneles clientes y dispositivos */
 .modal {
     position: fixed;
     top: 0;
@@ -238,4 +242,26 @@ input, select, textarea {
     border: 1px solid #ccc;
     padding: 0.5em;
     cursor: pointer;
+}
+/* Para los required */
+.required-field {
+  border: 2px solid orange;
+  background-color: #fff8e1;
+}
+
+.required-field.invalid {
+  border-color: red;
+  background-color: #ffe6e6;
+}
+/* Para los errores */
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.highlighted-cell {
+    background-color: #fff89a !important;
+    font-weight: bold;
+    border: 2px solid #e0c200;
 }

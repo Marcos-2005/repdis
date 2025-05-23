@@ -16,7 +16,7 @@
         <ul>
             <li><a href="#">Inicio</a></li>
             <li><a href="#" onclick="loadClients()">Clientes</a></li>
-            <li><a href="#" onclick="loadOrders()">Órdenes</a></li>
+            <li><a href="#" onclick="loadOrders()">Dispositivos</a></li>
         </ul>
     </nav>
 </header>
@@ -34,9 +34,9 @@
 
             <fieldset>
                 <legend>Datos del Cliente</legend>
-                <label>Nombre: <input type="text" id="client-name" required></label>
-                <label>DNI: <input type="text" id="client-dni" required></label>
-                <label>Teléfono: <input type="text" id="client-phone" required></label>
+                <label>Nombre: <input type="text" id="client-name" class="required-field" required></label>
+                <label>DNI: <input type="text" id="client-dni" class="required-field" required></label>
+                <label>Teléfono: <input type="text" id="client-phone" class="required-field" required></label>
                 <label>Correo: <input type="email" id="client-email"></label>
                 <label>Dirección: <input type="text" id="client-address"></label>
                 <input type="hidden" id="client-id">
@@ -45,10 +45,10 @@
 
             <fieldset>
                 <legend>Datos del Dispositivo</legend>
-                <label>Tipo: <input type="text" id="device-type" required></label>
+                <label>Tipo: <input type="text" id="device-type" class="required-field" required></label>
                 <label>Marca: <input type="text" id="device-brand"></label>
                 <label>Modelo: <input type="text" id="device-model"></label>
-                <label>Serie: <input type="text" id="device-serial"></label>
+                <label>Serie: <input type="text" id="device-serial"class="required-field" required></label>
                 <label>Contraseña: <input type="text" id="device-password"></label>
                 <input type="hidden" id="device-id">
             </fieldset>
@@ -73,14 +73,13 @@
                     </select>
                 </label>
                 <label>Administrador:
-                    <select id="order-admin" name="adminId" required>
+                    <select id="order-admin" name="adminId" class="required-field" required>
                     </select>
                 </label>
             </fieldset>
-
-
-
-
+            <div id="form-error-message" class="error-message" style="display: none;">
+                Por favor, rellena todos los campos obligatorios.
+            </div>
         </form>
     </section>
 

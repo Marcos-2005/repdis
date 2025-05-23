@@ -21,7 +21,23 @@ async function loadOrders() {
             const viewBtn = document.createElement('button');
             viewBtn.textContent = '👁️';
             viewBtn.style.backgroundColor = 'green';
-            viewBtn.onclick = () => fillOrderForm(order);
+            viewBtn.onclick = () => {
+                fillOrderForm(order);
+                highlightRow(row);
+            };
+
+            let highlightedRow = null;
+
+            function highlightRow(row) {
+                // Primero elimina la clase de otras filas
+                document.querySelectorAll('#orders-table tbody tr').forEach(r => {
+                    r.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+                });
+
+                // Aplica solo a las celdas que no son la última
+                const cells = row.querySelectorAll('td:not(:last-child)');
+                cells.forEach(td => td.classList.add('highlighted-cell'));
+            }
             row.appendChild(viewBtn);
 
             const deleteBtn = document.createElement('button');
@@ -129,6 +145,27 @@ function clearForm() {
 }
 
 async function saveOrder() {
+
+    const requiredFields = document.querySelectorAll('.required-field');
+    let allValid = true;
+
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.classList.add('invalid');
+            allValid = false;
+        } else {
+            field.classList.remove('invalid');
+        }
+    });
+
+    const errorBox = document.getElementById('form-error-message');
+    if (!allValid) {
+        alert("Por favor, rellena todos los campos obligatorios.");
+        return;
+    } else {
+      errorBox.style.display = 'none';
+    }
+
     const id = document.getElementById('order-id').value;
 
     const clientName = document.getElementById('client-name').value;
@@ -345,6 +382,11 @@ function closeModal(modal) {
     if (modal) {
         modal.remove();
     }
+}
+
+function highlightSelectedRow(rowElement) {
+    document.querySelectorAll('table tbody tr').forEach(row => row.classList.remove('selected-row'));
+    rowElement.classList.add('selected-row');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
