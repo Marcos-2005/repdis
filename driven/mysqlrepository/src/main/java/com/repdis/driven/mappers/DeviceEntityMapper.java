@@ -2,10 +2,16 @@ package com.repdis.driven.mappers;
 
 import com.repdis.driven.entities.DeviceEntity;
 import domain.Device;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
+@Component
+@RequiredArgsConstructor
 public class DeviceEntityMapper {
 
-    public static Device toDomain(DeviceEntity entity) {
+    private final ClientEntityMapper clientEntityMapper;
+
+    public Device toDomain(DeviceEntity entity) {
         return Device.builder()
                 .id(entity.getId())
                 .type(entity.getType())
@@ -16,7 +22,7 @@ public class DeviceEntityMapper {
                 .build();
     }
 
-    public static DeviceEntity toEntity(Device device) {
+    public DeviceEntity toEntity(Device device) {
         return DeviceEntity.builder()
                 .id(device.getId())
                 .type(device.getType())
@@ -24,7 +30,8 @@ public class DeviceEntityMapper {
                 .model(device.getModel())
                 .serialNumber(device.getSerialNumber())
                 .password(device.getPassword())
-                .client(device.getClient() != null ? ClientEntityMapper.toEntity(device.getClient()) : null)
+                .client(device.getClient() != null ? clientEntityMapper.toEntity(device.getClient()) : null)
                 .build();
     }
 }
+

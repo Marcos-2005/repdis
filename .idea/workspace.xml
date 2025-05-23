@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49cf3f8-6aea-4cce-a6bd-2569ba9f9250" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/DeviceUseCaseImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/DeviceRepositoryPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driving/DeviceServicePort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/DeviceRepositoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/adapters/DeviceRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/AdminRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/AdminRepositoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ClientRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ClientRepositoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/AdminEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/AdminEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ClientEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ClientEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/DeviceEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/DeviceEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/repositories/DeviceJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/repositories/DeviceJpaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/orders.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,25 +51,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "Maven.repdis [clean].executor": "Run",
-    "Maven.repdis [compile].executor": "Run",
-    "Maven.repdis [install].executor": "Run",
-    "Maven.repdis-boot [install].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature/REP-010-order-crud-ui",
-    "onboarding.tips.debug.path": "C:/Users/MARCOS/OneDrive/Documentos/proyecto_final/repdis/frontend/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.repdis [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.repdis [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.repdis [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.repdis-boot [install].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/REP-010-order-crud-ui&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/MARCOS/OneDrive/Documentos/proyecto_final/repdis/frontend/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\domain\src\main\java\domain" />

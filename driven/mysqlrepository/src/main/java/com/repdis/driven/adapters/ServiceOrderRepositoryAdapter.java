@@ -26,50 +26,45 @@ public class ServiceOrderRepositoryAdapter implements ServiceOrderRepositoryPort
     private final ClientJpaRepository clientRepository;
     private final DeviceJpaRepository deviceRepository;
 
+    private final ClientEntityMapper clientEntityMapper;
+    private final DeviceEntityMapper deviceEntityMapper;
+    private final ServiceOrderEntityMapper serviceOrderEntityMapper;
+
     @Override
     public List<ServiceOrder> findAll() {
         return orderRepository.findAll().stream()
-                .map(ServiceOrderEntityMapper::toDomain)
+                .map(serviceOrderEntityMapper::toDomain)
                 .toList();
     }
 
     @Override
     public ServiceOrder save(ServiceOrder order) {
-        ClientEntity clientEntity = ClientEntityMapper.toEntity(order.getClient());
+        ClientEntity clientEntity = clientEntityMapper.toEntity(order.getClient());
         ClientEntity savedClient = clientRepository.save(clientEntity);
 
-        DeviceEntity deviceEntity = DeviceEntityMapper.toEntity(order.getDevice());
-        deviceEntity.setClient(savedClient); // IMPORTANTE: asignación
+        DeviceEntity deviceEntity = deviceEntityMapper.toEntity(order.getDevice());
+        deviceEntity.setClient(savedClient); // Vinculamos el cliente
         DeviceEntity savedDevice = deviceRepository.save(deviceEntity);
 
-        ServiceOrderEntity orderEntity = ServiceOrderEntity.builder()
-                .entryDate(order.getEntryDate())
-                .status(order.getStatus())
-                .difficulty(order.getDifficulty())
-                .cost(order.getCost())
-                .client(savedClient)
-                .device(savedDevice)
-                .admin(order.getAdminId() != null ?
-                        com.repdis.driven.entities.AdminEntity.builder().id(order.getAdminId()).build()
-                        : null)
-                .build();
+        ServiceOrderEntity orderEntity = serviceOrderEntityMapper.toEntity(order);
+        orderEntity.setClient(savedClient);
+        orderEntity.setDevice(savedDevice);
 
         ServiceOrderEntity savedOrder = orderRepository.save(orderEntity);
-
-        return ServiceOrderEntityMapper.toDomain(savedOrder);
+        return serviceOrderEntityMapper.toDomain(savedOrder);
     }
 
     @Override
     public Client saveClient(Client client) {
-        ClientEntity entity = ClientEntityMapper.toEntity(client);
+        ClientEntity entity = clientEntityMapper.toEntity(client);
         ClientEntity saved = clientRepository.save(entity);
-        return ClientEntityMapper.toDomain(saved);
+        return clientEntityMapper.toDomain(saved);
     }
 
     @Override
     public Device saveDevice(Device device) {
-        DeviceEntity entity = DeviceEntityMapper.toEntity(device);
+        DeviceEntity entity = deviceEntityMapper.toEntity(device);
         DeviceEntity saved = deviceRepository.save(entity);
-        return DeviceEntityMapper.toDomain(saved);
+        return deviceEntityMapper.toDomain(saved);
     }
 }

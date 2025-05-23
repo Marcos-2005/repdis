@@ -2,14 +2,12 @@ package com.repdis.driven.mappers;
 
 import domain.Client;
 import com.repdis.driven.entities.ClientEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ClientEntityMapper {
 
-     private ClientEntityMapper() {
-        throw new UnsupportedOperationException("Utility class");
-    }
-
-    public static Client toDomain(ClientEntity entity) {
+    public Client toDomain(ClientEntity entity) {
         return new Client(
                 entity.getId(),
                 entity.getName(),
@@ -20,7 +18,7 @@ public class ClientEntityMapper {
         );
     }
 
-    public static ClientEntity toEntity(Client client) {
+    public ClientEntity toEntity(Client client) {
         return ClientEntity.builder()
                 .id(client.getId())
                 .name(client.getName())

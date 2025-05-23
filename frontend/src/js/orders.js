@@ -98,14 +98,8 @@ function showClientSelector() {
 
 function selectClient(client) {
     clearForm();
-    document.getElementById("client-name").value = client.name;
-    document.getElementById("client-id").value = client.id;
-    document.getElementById("client-dni").value = client.dni;
-    document.getElementById("client-phone").value = client.phone;
-    document.getElementById("client-email").value = client.email;
-    document.getElementById("client-address").value = client.address;
-
     closeNewOrderModal();
+    showDeviceSelectionDialog(client);
 }
 
 function clearForm() {
@@ -226,6 +220,130 @@ async function loadAdmins() {
         });
     } catch (error) {
         console.error('Error cargando administradores:', error);
+    }
+}
+
+function showDeviceSelectionDialog(client) {
+    const dialog = document.createElement("div");
+    dialog.classList.add("custom-modal");
+
+    dialog.innerHTML = `
+        <div class="modal-content">
+            <h3>¿Qué deseas hacer con el dispositivo?</h3>
+            <button id="btn-new-device">Nuevo dispositivo</button>
+            <button id="btn-existing-device">Seleccionar existente</button>
+            <button id="btn-back-to-client">Atrás</button>
+        </div>
+    `;
+
+    document.body.appendChild(dialog);
+
+    document.getElementById("btn-new-device").onclick = () => {
+        fillClientFields(client);
+        clearDeviceFields();
+        closeModal(dialog);
+    };
+
+    document.getElementById("btn-existing-device").onclick = () => {
+        loadDevicesForClient(client.id, client);
+        closeModal(dialog);
+    };
+
+    document.getElementById("btn-back-to-client").onclick = () => {
+        closeModal(dialog);
+        showNewOrderModal(); // vuelve a la pantalla de selección de cliente
+    };
+}
+
+async function loadDevicesForClient(clientId, client) {
+    try {
+        const response = await fetch(`http://localhost:8080/devices/by-client/${clientId}`);
+        if (!response.ok) throw new Error("No se pudieron cargar los dispositivos");
+
+        const devices = await response.json();
+        showDeviceTable(devices, client);
+    } catch (error) {
+        console.error("Error cargando dispositivos:", error);
+        alert("No se pudo cargar la lista de dispositivos.");
+    }
+}
+
+function showDeviceTable(devices, client) {
+    const dialog = document.createElement("div");
+    dialog.classList.add("custom-modal");
+
+    let rows = devices.map(device => `
+        <tr data-id="${device.id}">
+            <td>${device.type}</td>
+            <td>${device.brand}</td>
+            <td>${device.model}</td>
+            <td>${device.serialNumber}</td>
+        </tr>
+    `).join('');
+
+    dialog.innerHTML = `
+        <div class="modal-content">
+            <h3>Selecciona un dispositivo</h3>
+            <table class="modal-table">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Serie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${rows}
+                </tbody>
+            </table>
+            <button onclick="closeModal(this.closest('.custom-modal'))">Cancelar</button>
+        </div>
+    `;
+
+    document.body.appendChild(dialog);
+
+    dialog.querySelectorAll("tbody tr").forEach(row => {
+        row.addEventListener("click", () => {
+            const id = row.getAttribute("data-id");
+            const device = devices.find(d => d.id == id);
+            fillClientFields(client);
+            fillDeviceFields(device);
+            closeModal(dialog);
+        });
+    });
+}
+
+function fillClientFields(client) {
+    document.getElementById('client-id').value = client.id;
+    document.getElementById('client-name').value = client.name;
+    document.getElementById('client-dni').value = client.dni;
+    document.getElementById('client-phone').value = client.phone;
+    document.getElementById('client-email').value = client.email;
+    document.getElementById('client-address').value = client.address;
+}
+
+function fillDeviceFields(device) {
+    document.getElementById('device-id').value = device.id;
+    document.getElementById('device-type').value = device.type;
+    document.getElementById('device-brand').value = device.brand;
+    document.getElementById('device-model').value = device.model;
+    document.getElementById('device-serial').value = device.serialNumber;
+    document.getElementById('device-password').value = device.password;
+}
+
+function clearDeviceFields() {
+    document.getElementById("device-id").value = "";
+    document.getElementById("device-type").value = "";
+    document.getElementById("device-brand").value = "";
+    document.getElementById("device-model").value = "";
+    document.getElementById("device-serial").value = "";
+    document.getElementById("device-password").value = "";
+}
+
+function closeModal(modal) {
+    if (modal) {
+        modal.remove();
     }
 }
 

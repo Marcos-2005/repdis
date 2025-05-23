@@ -16,12 +16,13 @@ import java.util.stream.Collectors;
 public class ClientRepositoryAdapter implements ClientRepositoryPort {
 
     private final ClientJpaRepository clientJpaRepository;
+    private final ClientEntityMapper clientEntityMapper;
 
     @Override
     public List<Client> findAll() {
         List<ClientEntity> entities = clientJpaRepository.findAll();
         return entities.stream()
-                .map(ClientEntityMapper::toDomain)
+                .map(clientEntityMapper::toDomain)
                 .collect(Collectors.toList());
     }
 }
