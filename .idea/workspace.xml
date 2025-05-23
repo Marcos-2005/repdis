@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49cf3f8-6aea-4cce-a6bd-2569ba9f9250" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/DeviceUseCaseImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driven/DeviceRepositoryPort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/com/repdis/application/ports/driving/DeviceServicePort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/DeviceRepositoryAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/adapters/DeviceRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/AdminRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/AdminRepositoryAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ClientRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ClientRepositoryAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/adapters/ServiceOrderRepositoryAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/AdminEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/AdminEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ClientEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ClientEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/DeviceEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/DeviceEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/mappers/ServiceOrderEntityMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/repositories/DeviceJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/driven/mysqlrepository/src/main/java/com/repdis/driven/repositories/DeviceJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/adapters/ServiceOrderRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/driving/apirest/src/main/java/com/repdis/driving/adapters/ServiceOrderRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

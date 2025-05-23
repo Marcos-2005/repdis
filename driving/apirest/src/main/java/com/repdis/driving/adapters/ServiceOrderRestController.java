@@ -5,6 +5,7 @@ import com.repdis.driving.dto.ServiceOrderDTO;
 import com.repdis.driving.mappers.ServiceOrderDtoMapper;
 import domain.ServiceOrder;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +30,11 @@ public class ServiceOrderRestController {
     public void createOrder(@RequestBody ServiceOrderDTO orderDTO) {
         ServiceOrder domainOrder = ServiceOrderDtoMapper.toDomain(orderDTO);
         serviceOrderUseCase.createServiceOrder(domainOrder);
+    }
+
+    @PutMapping
+    public ResponseEntity<ServiceOrderDTO> updateOrder(@RequestBody ServiceOrderDTO dto) {
+        ServiceOrder updatedOrder = serviceOrderUseCase.createServiceOrder(ServiceOrderDtoMapper.toDomain(dto));
+        return ResponseEntity.ok(ServiceOrderDtoMapper.toDto(updatedOrder));
     }
 }
