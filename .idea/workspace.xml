@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e49cf3f8-6aea-4cce-a6bd-2569ba9f9250" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/boot/src/main/resources/sql/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/boot/src/main/resources/sql/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/js/orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/js/orders.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,11 +52,12 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "feature/REP-010-order-crud-ui",
+    "last_opened_file_path": "C:/Users/MARCOS/OneDrive/Documentos/proyecto_final/repdis",
     "onboarding.tips.debug.path": "C:/Users/MARCOS/OneDrive/Documentos/proyecto_final/repdis/frontend/src/Main.java",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
   }
 }]]></component>
   <component name="RecentsManager">
