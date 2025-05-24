@@ -28,6 +28,7 @@ async function loadOrders() {
 
             const adminCell = row.children[6];
             adminCell.classList.add('admin-cell');
+            adminCell.title = order.adminName || '';
 
             const viewBtn = document.createElement('button');
             viewBtn.textContent = '👁️';
@@ -118,9 +119,16 @@ function showClientSelector() {
             tbody.innerHTML = "";
             clients.forEach(c => {
                 const row = document.createElement("tr");
-                const cell = document.createElement("td");
-                cell.textContent = c.name;
-                row.appendChild(cell);
+
+                const nameCell = document.createElement("td");
+                nameCell.textContent = c.name;
+
+                const phoneCell = document.createElement("td");
+                phoneCell.textContent = c.phone;
+
+                row.appendChild(nameCell);
+                row.appendChild(phoneCell);
+
                 row.addEventListener("click", () => selectClient(c));
                 tbody.appendChild(row);
             });
