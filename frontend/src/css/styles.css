@@ -122,6 +122,20 @@ main {
  margin-bottom: 1rem;
 }
 
+.admin-cell {
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Tabla destaca donde estoy */
+
+.highlighted-cell {
+    background-color: #fff89a !important;
+    color: #003366;
+}
+
 /* Para los botones de la lista */
 #list-buttons {
    margin-top: auto;
@@ -271,8 +285,3 @@ input, select, textarea {
     margin: 10px 0;
 }
 
-.highlighted-cell {
-    background-color: #fff89a !important;
-    font-weight: bold;
-    border: 2px solid #e0c200;
-}

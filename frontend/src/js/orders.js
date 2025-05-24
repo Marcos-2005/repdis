@@ -1,3 +1,5 @@
+let highlightedRow = null;
+
 async function loadOrders() {
     try {
         const response = await fetch('http://localhost:8080/orders');
@@ -8,7 +10,6 @@ async function loadOrders() {
         tbody.innerHTML = '';
 
         orders.forEach(order => {
-
             const hideCompleted = document.getElementById('hide-completed').checked;
             if (hideCompleted && order.status === 'COMPLETED') {
                 return; // Saltar esta orden
@@ -24,6 +25,9 @@ async function loadOrders() {
                 <td>${order.entryDate}</td>
                 <td>${order.adminName || 'Sin asignar'}</td>
             `;
+
+            const adminCell = row.children[6];
+            adminCell.classList.add('admin-cell');
 
             const viewBtn = document.createElement('button');
             viewBtn.textContent = '👁️';
@@ -47,9 +51,10 @@ async function loadOrders() {
         });
 
         function highlightRow(row) {
-            document.querySelectorAll('#orders-table tbody tr').forEach(r => {
-                r.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
-            });
+            if (highlightedRow) {
+                highlightedRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+            }
+            highlightedRow = row;
             const cells = row.querySelectorAll('td:not(:last-child)');
             cells.forEach(td => td.classList.add('highlighted-cell'));
         }
@@ -96,6 +101,11 @@ function closeNewOrderModal() {
 function createEmptyOrder() {
     clearForm();
     closeNewOrderModal();
+
+    if (highlightedRow) {
+        highlightedRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+        highlightedRow = null;
+    }
 }
 
 function showClientSelector() {
