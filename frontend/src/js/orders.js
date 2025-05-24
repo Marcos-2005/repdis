@@ -16,6 +16,7 @@ async function loadOrders() {
                 <td>${order.status}</td>
                 <td>${order.difficulty}</td>
                 <td>${order.entryDate}</td>
+                <td>${order.adminName || 'Sin asignar'}</td>
             `;
 
             const viewBtn = document.createElement('button');
@@ -26,33 +27,31 @@ async function loadOrders() {
                 highlightRow(row);
             };
 
-            let highlightedRow = null;
-
-            function highlightRow(row) {
-                // Primero elimina la clase de otras filas
-                document.querySelectorAll('#orders-table tbody tr').forEach(r => {
-                    r.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
-                });
-
-                // Aplica solo a las celdas que no son la última
-                const cells = row.querySelectorAll('td:not(:last-child)');
-                cells.forEach(td => td.classList.add('highlighted-cell'));
-            }
-            row.appendChild(viewBtn);
-
             const deleteBtn = document.createElement('button');
             deleteBtn.textContent = '🗑️';
             deleteBtn.style.backgroundColor = 'red';
             deleteBtn.onclick = () => deleteOrder(order.id);
-            row.appendChild(deleteBtn);
+
+            const actionCell = document.createElement('td');
+            actionCell.appendChild(viewBtn);
+            actionCell.appendChild(deleteBtn);
+            row.appendChild(actionCell);
 
             tbody.appendChild(row);
         });
 
+        function highlightRow(row) {
+            document.querySelectorAll('#orders-table tbody tr').forEach(r => {
+                r.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+            });
+            const cells = row.querySelectorAll('td:not(:last-child)');
+            cells.forEach(td => td.classList.add('highlighted-cell'));
+        }
+
     } catch (error) {
         console.error('Error cargando órdenes:', error);
         document.getElementById('orders-body').innerHTML =
-            '<tr><td colspan="6">Error al cargar las órdenes de servicio</td></tr>';
+            '<tr><td colspan="7">Error al cargar las órdenes de servicio</td></tr>';
     }
 }
 

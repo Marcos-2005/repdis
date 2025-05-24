@@ -18,7 +18,7 @@ public class ServiceOrderDtoMapper {
                 .status(order.getStatus())
                 .difficulty(order.getDifficulty())
                 .cost(order.getCost())
-                .adminId(order.getAdminId())
+                .adminName(order.getAdmin() != null ? order.getAdmin().getName() : null)
                 .client(ClientDtoMapper.toDto(order.getClient()))
                 .device(DeviceDtoMapper.toDto(order.getDevice()))
                 .build();

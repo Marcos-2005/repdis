@@ -14,6 +14,8 @@ public class ServiceOrderDTO {
     private String difficulty;
     private Double cost;
     private Long adminId;
+    private String adminName;
+
 
     private ClientDTO client;
     private DeviceDTO device;
