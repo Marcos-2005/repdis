@@ -96,6 +96,10 @@
                     <option value="asc">Antiguas primero</option>
                 </select>
             </label>
+            <label id="filter-created">
+                <span>Ocultar órdenes finalizadas</span>
+                <input type="checkbox" id="hide-completed" onchange="loadOrders()">
+            </label>
         </div>
         <div class="form-buttons">
             <button type="button" id="new-order-btn" onclick="showNewOrderModal()">Nuevo</button>
@@ -111,6 +115,7 @@
                 <th>Dificultad</th>
                 <th>Fecha</th>
                 <th>Administrador</th>
+                <th>Botones</th>
             </tr>
             </thead>
             <tbody id="orders-body">

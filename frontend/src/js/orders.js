@@ -8,6 +8,12 @@ async function loadOrders() {
         tbody.innerHTML = '';
 
         orders.forEach(order => {
+
+            const hideCompleted = document.getElementById('hide-completed').checked;
+            if (hideCompleted && order.status === 'COMPLETED') {
+                return; // Saltar esta orden
+            }
+
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${order.id}</td>

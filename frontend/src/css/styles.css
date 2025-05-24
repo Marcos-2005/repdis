@@ -80,12 +80,23 @@ main {
    flex-direction: column;
    gap: 0.5em;
    margin-bottom: 1em;
+   flex-wrap: wrap;
+   align-items: flex-start;
 }
 
 #filters input,
 #filters button {
    padding: 0.5em;
    font-size: 0.9em;
+}
+
+#filter-created {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+    white-space: nowrap;
+    max-width: 100%;
 }
 
 /* Para la tabla de órdenes */
