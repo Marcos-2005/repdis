@@ -30,4 +30,11 @@ public class ClientRepositoryAdapter implements ClientRepositoryPort {
     public void deleteById(Long id) {
         clientJpaRepository.deleteById(id);
     }
+
+    @Override
+    public void update(Client client) {
+        ClientEntity entity = clientEntityMapper.toEntity(client);
+        clientJpaRepository.save(entity); // Save sirve para insertar y actualizar
+    }
 }
+

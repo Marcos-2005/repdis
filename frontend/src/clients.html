@@ -23,10 +23,9 @@
 </header>
 
 <main id="main-content">
-    <section class="list-section">
+    <div class="client-page">
+    <section class="list-section client-list-section">
         <h2>Lista de Clientes</h2>
-
-        <!-- Opcional: filtros básicos -->
         <div class="filters">
             <label>Buscar por nombre: <input type="text" id="filter-name" oninput="filterClients()"></label>
             <label>Buscar por teléfono: <input type="text" id="filter-phone" oninput="filterClients()"></label>
@@ -46,6 +45,23 @@
             </thead>
             <tbody id="clients-body"></tbody>
         </table>
+        </div>
+    </section>
+    <section id="client-form-section" class="form-section hidden">
+        <form id="client-form">
+            <input type="hidden" id="client-id" />
+            <fieldset>
+                <legend>Datos del Cliente</legend>
+                <label>Nombre: <input type="text" id="client-name" required /></label>
+                <label>DNI: <input type="text" id="client-dni" required /></label>
+                <label>Teléfono: <input type="text" id="client-phone" required /></label>
+                <label>Email: <input type="email" id="client-email" /></label>
+                <label>Dirección: <input type="text" id="client-address" /></label>
+            </fieldset>
+            <div class="form-buttons">
+                <button type="button" onclick="saveClient()">Guardar</button>
+            </div>
+        </form>
     </section>
 </main>
 

@@ -26,6 +26,13 @@ public class ClientRestController {
                 .collect(Collectors.toList());
     }
 
+    @PutMapping
+    public ResponseEntity<Void> updateClient(@RequestBody ClientDTO clientDTO) {
+        Client client = ClientDtoMapper.toDomain(clientDTO); // ← CONVERSIÓN AQUÍ
+        clientService.updateClient(client);
+        return ResponseEntity.noContent().build();
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
         clientService.deleteClientById(id);

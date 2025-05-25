@@ -1,13 +1,15 @@
+document.addEventListener('DOMContentLoaded', loadClients);
+
 async function loadClients() {
     try {
         const response = await fetch('http://localhost:8080/clients');
         if (!response.ok) throw new Error('Error al obtener los clientes');
         const clients = await response.json();
-
         renderClientsTable(clients);
     } catch (error) {
         console.error(error);
-        document.getElementById('clients-body').innerHTML = '<tr><td colspan="7">Error al cargar clientes</td></tr>';
+        document.getElementById('clients-body').innerHTML =
+            '<tr><td colspan="7">Error al cargar clientes</td></tr>';
     }
 }
 
@@ -31,7 +33,7 @@ function renderClientsTable(clients) {
         const editBtn = document.createElement('button');
         editBtn.textContent = '✏️';
         editBtn.title = 'Editar';
-        editBtn.onclick = () => editClient(client);
+        editBtn.onclick = () => fillClientForm(client);
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = '🗑️';
@@ -45,6 +47,56 @@ function renderClientsTable(clients) {
 
         tbody.appendChild(row);
     });
+}
+
+function fillClientForm(client) {
+    const formSection = document.getElementById('client-form-section');
+
+    formSection.classList.remove('hidden');
+    formSection.classList.add('visible');
+
+    document.getElementById('client-id').value = client.id;
+    document.getElementById('client-name').value = client.name;
+    document.getElementById('client-dni').value = client.dni;
+    document.getElementById('client-phone').value = client.phone;
+    document.getElementById('client-email').value = client.email;
+    document.getElementById('client-address').value = client.address;
+}
+
+async function saveClient() {
+    const id = document.getElementById('client-id').value;
+    const name = document.getElementById('client-name').value.trim();
+    const dni = document.getElementById('client-dni').value.trim();
+    const phone = document.getElementById('client-phone').value.trim();
+    const email = document.getElementById('client-email').value.trim();
+    const address = document.getElementById('client-address').value.trim();
+
+    if (!id || !name || !dni || !phone) {
+        alert('Por favor, completa los campos obligatorios (nombre, DNI, teléfono).');
+        return;
+    }
+
+    const client = { id: parseInt(id), name, dni, phone, email, address };
+
+    document.getElementById('client-form-section').classList.remove('visible');
+    document.getElementById('client-form-section').classList.add('hidden');
+
+    try {
+        const response = await fetch('http://localhost:8080/clients', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(client)
+        });
+
+        if (!response.ok) throw new Error('Error al actualizar el cliente');
+        alert('Cliente actualizado');
+        loadClients();
+
+        document.getElementById('client-form-section').classList.add('hidden');
+    } catch (error) {
+        console.error("Error actualizando cliente:", error);
+        alert('No se pudo actualizar el cliente.');
+    }
 }
 
 async function deleteClient(clientId) {
@@ -65,9 +117,3 @@ async function deleteClient(clientId) {
         alert("No se pudo eliminar el cliente.");
     }
 }
-
-function editClient(client) {
-    alert(`TODO: Me falta aún implementarlo: ${client.name}`);
-}
-
-document.addEventListener('DOMContentLoaded', loadClients);
