@@ -172,6 +172,7 @@ input, select, textarea {
    width: 100%;
    box-sizing: border-box;
 }
+/* Para el logo */
 
 .logo-container {
    display: flex;
@@ -182,7 +183,16 @@ input, select, textarea {
 .logo-container img {
    height: 35px;
 }
-/* para los paneles clientes y dispositivos */
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Para los paneles clientes y dispositivos */
 .modal {
     position: fixed;
     top: 0;

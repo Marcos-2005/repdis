@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import com.repdis.driving.mappers.ClientDtoMapper;
 import com.repdis.application.services.ClientService;
 import domain.Client;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,5 +24,11 @@ public class ClientRestController {
         return clients.stream()
                 .map(ClientDtoMapper::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteClient(@PathVariable Long id) {
+        clientService.deleteClientById(id);
+        return ResponseEntity.noContent().build();
     }
 }

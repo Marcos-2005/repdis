@@ -74,3 +74,43 @@ CREATE TABLE IF NOT EXISTS citas (
     FOREIGN KEY (client_id) REFERENCES clientes(id),
     FOREIGN KEY (admin_id) REFERENCES administradores(id)
 );
+
+-- 1. dispositivos → clientes (cliente con dispositivos)
+ALTER TABLE dispositivos
+DROP FOREIGN KEY dispositivos_ibfk_1;
+
+ALTER TABLE dispositivos
+ADD CONSTRAINT fk_dispositivos_clientes
+FOREIGN KEY (client_id)
+REFERENCES clientes(id)
+ON DELETE CASCADE;
+
+-- 2. ordenes_servicios → dispositivos (dispositivo con ordenes)
+ALTER TABLE ordenes_servicios
+DROP FOREIGN KEY ordenes_servicios_ibfk_1;
+
+ALTER TABLE ordenes_servicios
+ADD CONSTRAINT fk_ordenes_dispositivos
+FOREIGN KEY (device_id)
+REFERENCES dispositivos(id)
+ON DELETE CASCADE;
+
+-- 3. ordenes_servicios → clientes (cliente con ordenes)
+ALTER TABLE ordenes_servicios
+DROP FOREIGN KEY ordenes_servicios_ibfk_3;
+
+ALTER TABLE ordenes_servicios
+ADD CONSTRAINT fk_ordenes_clientes
+FOREIGN KEY (client_id)
+REFERENCES clientes(id)
+ON DELETE CASCADE;
+
+-- 4. diagnosticos → ordenes_servicios (diagnóstico con orden)
+ALTER TABLE diagnosticos
+DROP FOREIGN KEY diagnosticos_ibfk_1;
+
+ALTER TABLE diagnosticos
+ADD CONSTRAINT fk_diagnosticos_ordenes
+FOREIGN KEY (service_order_id)
+REFERENCES ordenes_servicios(id)
+ON DELETE CASCADE;

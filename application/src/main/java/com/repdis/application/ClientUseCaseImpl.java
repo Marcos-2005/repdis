@@ -19,4 +19,9 @@ public class ClientUseCaseImpl implements ClientServicePort {
         System.out.println("Fetching all clients from use case...");
         return clientRepositoryPort.findAll();
     }
+
+    @Override
+    public void deleteClientById(Long id) {
+        clientRepositoryPort.deleteById(id);
+    }
 }
