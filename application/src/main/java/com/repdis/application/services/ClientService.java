@@ -21,6 +21,10 @@ public class ClientService implements ClientServicePort {
         return clientRepositoryPort.findAll();
     }
 
+    public void updateClient(Client client) {
+        clientRepositoryPort.update(client);
+    }
+
     @Override
     public void deleteClientById(Long id) {
         clientRepositoryPort.deleteById(id);
