@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface ClientServicePort {
     List<Client> getAllClients();
+    void deleteClientById(Long id);
 }

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepDis - Clientes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo-container">
+        <a href="index.html" class="logo-link">
+            <img src="img/logo.jpg" alt="Logo RepDis" />
+            <h1>RepDis</h1>
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="devices.html">Dispositivos</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main-content">
+    <section class="list-section">
+        <h2>Lista de Clientes</h2>
+
+        <!-- Opcional: filtros básicos -->
+        <div class="filters">
+            <label>Buscar por nombre: <input type="text" id="filter-name" oninput="filterClients()"></label>
+            <label>Buscar por teléfono: <input type="text" id="filter-phone" oninput="filterClients()"></label>
+        </div>
+
+        <table id="clients-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>DNI</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody id="clients-body"></tbody>
+        </table>
+    </section>
+</main>
+
+<script src="js/clients.js" defer></script>
+</body>
+</html>

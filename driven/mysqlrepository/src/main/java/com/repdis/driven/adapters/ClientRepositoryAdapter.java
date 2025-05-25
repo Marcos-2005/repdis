@@ -25,4 +25,9 @@ public class ClientRepositoryAdapter implements ClientRepositoryPort {
                 .map(clientEntityMapper::toDomain)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void deleteById(Long id) {
+        clientJpaRepository.deleteById(id);
+    }
 }

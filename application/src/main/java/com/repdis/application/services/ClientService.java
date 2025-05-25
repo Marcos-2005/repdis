@@ -20,4 +20,9 @@ public class ClientService implements ClientServicePort {
     public List<Client> getAllClients() {
         return clientRepositoryPort.findAll();
     }
+
+    @Override
+    public void deleteClientById(Long id) {
+        clientRepositoryPort.deleteById(id);
+    }
 }

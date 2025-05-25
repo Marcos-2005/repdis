@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface ClientRepositoryPort {
     List<Client> findAll();
+    void deleteById(Long id);
 }

@@ -4,36 +4,70 @@ async function loadClients() {
         if (!response.ok) throw new Error('Error al obtener los clientes');
         const clients = await response.json();
 
-        const main = document.getElementById('main-content');
-        main.innerHTML = `
-            <h2>Listado de Clientes</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>DNI</th>
-                        <th>Teléfono</th>
-                        <th>Email</th>
-                        <th>Dirección</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${clients.map(c => `
-                        <tr>
-                            <td>${c.id}</td>
-                            <td>${c.name}</td>
-                            <td>${c.dni}</td>
-                            <td>${c.phone}</td>
-                            <td>${c.email}</td>
-                            <td>${c.address}</td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-        `;
+        renderClientsTable(clients);
     } catch (error) {
         console.error(error);
-        document.getElementById('main-content').innerHTML = '<p>Error cargando los clientes</p>';
+        document.getElementById('clients-body').innerHTML = '<tr><td colspan="7">Error al cargar clientes</td></tr>';
     }
 }
+
+function renderClientsTable(clients) {
+    const tbody = document.getElementById('clients-body');
+    tbody.innerHTML = '';
+
+    clients.forEach(client => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${client.id}</td>
+            <td>${client.name}</td>
+            <td>${client.dni}</td>
+            <td>${client.phone}</td>
+            <td>${client.email}</td>
+            <td>${client.address}</td>
+        `;
+
+        const actionsTd = document.createElement('td');
+
+        const editBtn = document.createElement('button');
+        editBtn.textContent = '✏️';
+        editBtn.title = 'Editar';
+        editBtn.onclick = () => editClient(client);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '🗑️';
+        deleteBtn.style.backgroundColor = 'red';
+        deleteBtn.title = 'Eliminar';
+        deleteBtn.onclick = () => deleteClient(client.id);
+
+        actionsTd.appendChild(editBtn);
+        actionsTd.appendChild(deleteBtn);
+        row.appendChild(actionsTd);
+
+        tbody.appendChild(row);
+    });
+}
+
+async function deleteClient(clientId) {
+    try {
+        const confirmDelete = confirm(`¿Seguro que quieres eliminar el cliente con ID ${clientId}?`);
+        if (!confirmDelete) return;
+
+        const response = await fetch(`http://localhost:8080/clients/${clientId}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) throw new Error("Error al eliminar el cliente");
+
+        alert("Cliente eliminado correctamente");
+        loadClients();
+    } catch (error) {
+        console.error("Error al eliminar cliente:", error);
+        alert("No se pudo eliminar el cliente.");
+    }
+}
+
+function editClient(client) {
+    alert(`TODO: Me falta aún implementarlo: ${client.name}`);
+}
+
+document.addEventListener('DOMContentLoaded', loadClients);
