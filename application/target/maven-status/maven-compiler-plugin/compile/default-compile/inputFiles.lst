@@ -1,0 +1,17 @@
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\AdminUseCaseImpl.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ClientUseCaseImpl.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\DeviceUseCaseImpl.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driven\AdminRepositoryPort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driven\ClientRepositoryPort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driven\DeviceRepositoryPort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driven\DiagnosticoRepositoryPort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driven\OrderRepositoryPort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driven\ServiceOrderRepositoryPort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driving\AdminServicePort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driving\ClientServicePort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driving\DeviceServicePort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driving\OrderServicePort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ports\driving\ServiceOrderServicePort.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\ServiceOrderUseCaseImpl.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\services\ClientService.java
+C:\Users\MARCOS\OneDrive\Documentos\proyecto_final\repdis\application\src\main\java\com\repdis\application\services\OrderService.java

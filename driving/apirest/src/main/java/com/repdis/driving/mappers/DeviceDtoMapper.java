@@ -13,6 +13,7 @@ public class DeviceDtoMapper {
                 .model(dto.getModel())
                 .serialNumber(dto.getSerialNumber())
                 .password(dto.getPassword())
+                .clientId(dto.getClientId())
                 .build();
     }
 
@@ -24,6 +25,8 @@ public class DeviceDtoMapper {
                 .model(device.getModel())
                 .serialNumber(device.getSerialNumber())
                 .password(device.getPassword())
+                .clientId(device.getClientId())
+                .clientName(device.getClient() != null ? device.getClient().getName() : null)
                 .build();
     }
 }

@@ -1,4 +1,11 @@
-document.addEventListener('DOMContentLoaded', loadClients);
+document.addEventListener('DOMContentLoaded', () => {
+    loadClients();
+
+    const cancelBtn = document.querySelector('#client-form-section .cancel-button');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', hideClientForm);
+    }
+});
 
 async function loadClients() {
     try {
@@ -78,8 +85,7 @@ async function saveClient() {
 
     const client = { id: parseInt(id), name, dni, phone, email, address };
 
-    document.getElementById('client-form-section').classList.remove('visible');
-    document.getElementById('client-form-section').classList.add('hidden');
+    hideClientForm();
 
     try {
         const response = await fetch('http://localhost:8080/clients', {
@@ -91,8 +97,6 @@ async function saveClient() {
         if (!response.ok) throw new Error('Error al actualizar el cliente');
         alert('Cliente actualizado');
         loadClients();
-
-        document.getElementById('client-form-section').classList.add('hidden');
     } catch (error) {
         console.error("Error actualizando cliente:", error);
         alert('No se pudo actualizar el cliente.');
@@ -116,4 +120,11 @@ async function deleteClient(clientId) {
         console.error("Error al eliminar cliente:", error);
         alert("No se pudo eliminar el cliente.");
     }
+}
+
+function hideClientForm() {
+    const section = document.getElementById('client-form-section');
+    section.classList.remove('visible');
+    section.classList.add('hidden');
+    document.getElementById('client-form').reset();
 }
