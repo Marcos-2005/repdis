@@ -14,4 +14,5 @@ public class Device {
     private String serialNumber;
     private String password;
     private Client client;
+    private Long clientId;
 }

@@ -18,4 +18,19 @@ public class DeviceUseCaseImpl implements DeviceServicePort {
     public List<Device> findByClientId(Long clientId) {
         return deviceRepositoryPort.findByClientId(clientId);
     }
+
+    @Override
+    public List<Device> getAllDevices() {
+        return deviceRepositoryPort.findAll();
+    }
+
+    @Override
+    public void updateDevice(Device device) {
+        deviceRepositoryPort.update(device);
+    }
+
+    @Override
+    public void deleteDeviceById(Long id) {
+        deviceRepositoryPort.deleteById(id);
+    }
 }

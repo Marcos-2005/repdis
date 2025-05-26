@@ -16,4 +16,6 @@ public class DeviceDTO {
     private String model;
     private String serialNumber;
     private String password;
+    private Long clientId;
+    private String clientName;
 }

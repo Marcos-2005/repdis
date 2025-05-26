@@ -17,35 +17,35 @@
     <nav>
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="devices.html">Dispositivos</a></li>
+            <li><a href="device.html">Dispositivos</a></li>
         </ul>
     </nav>
 </header>
 
 <main id="main-content">
     <div class="client-page">
-    <section class="list-section client-list-section">
-        <h2>Lista de Clientes</h2>
-        <div class="filters">
-            <label>Buscar por nombre: <input type="text" id="filter-name" oninput="filterClients()"></label>
-            <label>Buscar por teléfono: <input type="text" id="filter-phone" oninput="filterClients()"></label>
-        </div>
+        <section class="list-section client-list-section">
+            <h2>Lista de Clientes</h2>
+            <div class="filters">
+                <label>Buscar por nombre: <input type="text" id="filter-name" oninput="filterClients()"></label>
+                <label>Buscar por teléfono: <input type="text" id="filter-phone" oninput="filterClients()"></label>
+            </div>
 
-        <table id="clients-table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>DNI</th>
-                <th>Teléfono</th>
-                <th>Email</th>
-                <th>Dirección</th>
-                <th>Acciones</th>
-            </tr>
-            </thead>
-            <tbody id="clients-body"></tbody>
-        </table>
-        </div>
+            <table id="clients-table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody id="clients-body"></tbody>
+            </table>
+    </div>
     </section>
     <section id="client-form-section" class="form-section hidden">
         <form id="client-form">
@@ -60,6 +60,8 @@
             </fieldset>
             <div class="form-buttons">
                 <button type="button" onclick="saveClient()">Guardar</button>
+                <button type="button" class="cancel-button">Cancelar</button>
+
             </div>
         </form>
     </section>

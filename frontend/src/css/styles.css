@@ -295,35 +295,39 @@ input, select, textarea {
     margin: 10px 0;
 }
 /* pagina clientes*/
-.client-page {
+.client-page,
+.device-page{
     display: flex;
     flex-direction: row;
     gap: 1em;
 }
 
 /* Mantiene la tabla a la izquierda */
-.client-list-section {
+.client-list-section,
+ .device-list-section{
     flex: 1;
 }
 
 /* Formulario flotante a la derecha */
-#client-form-section {
-    flex: 5 5 500px;
-    min-width: 450px;
-    max-width: 100%;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 2em 2em 1.5em 2em;
-    display: none;
-    height: fit-content;
-    position: sticky;
-    top: 1em;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+#client-form-section,
+#device-form-section {
+  flex: 5 5 500px;
+  min-width: 450px;
+  max-width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2em 2em 1.5em 2em;
+  display: none;
+  height: fit-content;
+  position: sticky;
+  top: 1em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-#client-form-section.visible {
-    display: block;
+#client-form-section.visible,
+#device-form-section.visible {
+  display: block;
 }
 
 .client-page {
@@ -333,19 +337,24 @@ input, select, textarea {
 }
 
 #client-form-section input,
-#client-form-section label {
-    font-size: 1em;
-    margin-bottom: 0.6em;
+#client-form-section label,
+#device-form-section input,
+#device-form-section label {
+  font-size: 1em;
+  margin-bottom: 0.6em;
 }
 
-#client-form-section label {
-    display: block;
-    font-weight: bold;
-    margin-top: 0.8em;
+
+#client-form-section label,
+#device-form-section label {
+  display: block;
+  font-weight: bold;
+  margin-top: 0.8em;
 }
 /*si*/
 
-#clients-table {
+#clients-table,
+#devices-table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ccc;
@@ -353,13 +362,22 @@ input, select, textarea {
 }
 
 #clients-table th,
-#clients-table td {
+#clients-table td,
+#devices-table th,
+#devices-table td  {
     border: 0.5px solid #ccc;
     padding: 0.5em;
     font-size: 0.95em;
     text-align: left;
 }
 
+/*botones form de device y clients*/
+
+.form-buttons {
+  display: flex;
+  gap: 1em;
+  justify-content: flex-end;
+}
 
    /*Final normal*/
 

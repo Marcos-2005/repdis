@@ -3,6 +3,7 @@ package com.repdis.driven.adapters;
 import com.repdis.application.ports.driven.DeviceRepositoryPort;
 import com.repdis.driven.mappers.DeviceEntityMapper;
 import com.repdis.driven.repositories.DeviceJpaRepository;
+import com.repdis.driven.entities.DeviceEntity;
 import domain.Device;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -23,5 +24,24 @@ public class DeviceRepositoryAdapter implements DeviceRepositoryPort {
                 .stream()
                 .map(deviceEntityMapper::toDomain)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Device> findAll() {
+        return deviceJpaRepository.findAll()
+                .stream()
+                .map(deviceEntityMapper::toDomain)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void update(Device device) {
+        DeviceEntity entity = deviceEntityMapper.toEntity(device);
+        deviceJpaRepository.save(entity);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        deviceJpaRepository.deleteById(id);
     }
 }
