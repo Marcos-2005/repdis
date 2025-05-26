@@ -26,6 +26,13 @@ public class ClientRestController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/by-phone")
+    public ResponseEntity<Client> getByPhone(@RequestParam String phone) {
+        return clientService.findByPhone(phone)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @PutMapping
     public ResponseEntity<Void> updateClient(@RequestBody ClientDTO clientDTO) {
         Client client = ClientDtoMapper.toDomain(clientDTO); // ← CONVERSIÓN AQUÍ

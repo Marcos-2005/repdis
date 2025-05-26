@@ -9,6 +9,7 @@ import com.repdis.driven.entities.ClientEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -35,6 +36,12 @@ public class ClientRepositoryAdapter implements ClientRepositoryPort {
     public void update(Client client) {
         ClientEntity entity = clientEntityMapper.toEntity(client);
         clientJpaRepository.save(entity); // Save sirve para insertar y actualizar
+    }
+
+    @Override
+    public Optional<Client> findByPhone(String phone) {
+        return clientJpaRepository.findByPhone(phone)
+                .map(clientEntityMapper::toDomain);
     }
 }
 

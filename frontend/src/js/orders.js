@@ -1,5 +1,39 @@
 let highlightedRow = null;
 
+async function findClientByPhone(phone) {
+  const res = await fetch(`http://localhost:8080/clients/by-phone?phone=${encodeURIComponent(phone)}`);
+  if (res.ok) return await res.json();
+  return null;
+}
+
+async function findDeviceBySerial(serial) {
+  const res = await fetch(`http://localhost:8080/devices/by-serial?serial=${encodeURIComponent(serial)}`);
+  if (res.ok) return await res.json();
+  return null;
+}
+
+async function validateNewClientBeforeSave(client) {
+  if (client.id) return null; // Ya es existente, no hay problema
+  const existing = await findClientByPhone(client.phone);
+  if (existing && (existing.name !== client.name || existing.dni !== client.dni)) {
+    throw new Error("Ya existe un cliente con ese teléfono. Si es el mismo, usa sus datos exactos.");
+  }
+  return existing;
+}
+
+async function validateNewDeviceBeforeSave(device) {
+  if (device.id) return null;
+  const existing = await findDeviceBySerial(device.serialNumber);
+  if (existing && (
+    existing.type !== device.type ||
+    existing.brand !== device.brand ||
+    existing.model !== device.model
+  )) {
+    throw new Error("Ya existe un dispositivo con ese número de serie. Si es el mismo, usa sus datos exactos.");
+  }
+  return existing;
+}
+
 async function loadOrders() {
     try {
         const response = await fetch('http://localhost:8080/orders');
@@ -167,7 +201,48 @@ function clearForm() {
     document.getElementById("client-name").focus();
 }
 
+function getClientFromForm() {
+    return {
+        id: parseInt(document.getElementById('client-id').value) || null,
+        name: document.getElementById('client-name').value.trim(),
+        dni: document.getElementById('client-dni').value.trim(),
+        phone: document.getElementById('client-phone').value.trim(),
+        email: document.getElementById('client-email').value.trim(),
+        address: document.getElementById('client-address').value.trim()
+    };
+}
+
+function getDeviceFromForm() {
+    return {
+        id: parseInt(document.getElementById('device-id').value) || null,
+        type: document.getElementById('device-type').value.trim(),
+        brand: document.getElementById('device-brand').value.trim(),
+        model: document.getElementById('device-model').value.trim(),
+        serialNumber: document.getElementById('device-serial').value.trim(),
+        password: document.getElementById('device-password').value.trim()
+    };
+}
+
+
 async function saveOrder() {
+
+    const client = getClientFromForm();
+    const device = getDeviceFromForm();
+
+     try {
+        const existingClient = await validateNewClientBeforeSave(client);
+        if (existingClient) {
+          client.id = existingClient.id;
+        }
+
+        const existingDevice = await validateNewDeviceBeforeSave(device);
+        if (existingDevice) {
+          device.id = existingDevice.id;
+        }
+      } catch (validationError) {
+        alert(validationError.message);
+        return;
+      }
 
     const requiredFields = document.querySelectorAll('.required-field');
     let allValid = true;

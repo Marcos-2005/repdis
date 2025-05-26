@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -43,5 +44,11 @@ public class DeviceRepositoryAdapter implements DeviceRepositoryPort {
     @Override
     public void deleteById(Long id) {
         deviceJpaRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Device> findBySerial(String serial) {
+        return deviceJpaRepository.findBySerialNumber(serial)
+                .map(deviceEntityMapper::toDomain);
     }
 }

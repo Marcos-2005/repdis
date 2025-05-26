@@ -6,6 +6,7 @@ import com.repdis.application.ports.driving.ClientServicePort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService implements ClientServicePort {
@@ -28,5 +29,10 @@ public class ClientService implements ClientServicePort {
     @Override
     public void deleteClientById(Long id) {
         clientRepositoryPort.deleteById(id);
+    }
+
+    @Override
+    public Optional<Client> findByPhone(String phone) {
+        return clientRepositoryPort.findByPhone(phone);
     }
 }
