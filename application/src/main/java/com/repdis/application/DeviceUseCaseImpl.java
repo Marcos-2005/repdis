@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,5 +33,10 @@ public class DeviceUseCaseImpl implements DeviceServicePort {
     @Override
     public void deleteDeviceById(Long id) {
         deviceRepositoryPort.deleteById(id);
+    }
+
+    @Override
+    public Optional<Device> findBySerial(String serial) {
+        return deviceRepositoryPort.findBySerial(serial);
     }
 }

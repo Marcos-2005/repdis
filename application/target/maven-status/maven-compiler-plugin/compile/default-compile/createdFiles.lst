@@ -4,6 +4,7 @@ com\repdis\application\ports\driving\DeviceServicePort.class
 com\repdis\application\ports\driving\ServiceOrderServicePort.class
 com\repdis\application\ports\driven\DiagnosticoRepositoryPort.class
 com\repdis\application\services\OrderService.class
+com\repdis\application\services\DeviceService.class
 com\repdis\application\ports\driving\ClientServicePort.class
 com\repdis\application\ServiceOrderUseCaseImpl.class
 com\repdis\application\DeviceUseCaseImpl.class
