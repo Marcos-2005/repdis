@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function highlightDeviceRow(rowElement) {
+    if (selectedDeviceRow) {
+        selectedDeviceRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+    }
+    selectedDeviceRow = rowElement;
+    rowElement.querySelectorAll('td:not(:last-child)').forEach(td => td.classList.add('highlighted-cell'));
+}
+
+function clearHighlightedDeviceRow() {
+    if (selectedDeviceRow) {
+        selectedDeviceRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+        selectedDeviceRow = null;
+    }
+}
+
 async function loadDevices() {
     try {
         const response = await fetch('http://localhost:8080/devices');
@@ -46,6 +61,7 @@ function renderDevicesTable(devices) {
         editBtn.onclick = () => {
             fillDeviceForm(device);
             showDeviceForm();
+            highlightDeviceRow(row);
         };
 
         const deleteBtn = document.createElement('button');
@@ -145,4 +161,5 @@ function hideDeviceForm() {
     section.classList.remove('visible');
     section.classList.add('hidden');
     document.getElementById('device-form').reset();
+    clearHighlightedDeviceRow();
 }

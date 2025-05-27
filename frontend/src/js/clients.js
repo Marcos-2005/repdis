@@ -1,3 +1,5 @@
+let selectedClientRow = null;
+
 document.addEventListener('DOMContentLoaded', () => {
     loadClients();
 
@@ -6,6 +8,22 @@ document.addEventListener('DOMContentLoaded', () => {
         cancelBtn.addEventListener('click', hideClientForm);
     }
 });
+
+function highlightClientRow(rowElement) {
+    if (selectedClientRow) {
+        selectedClientRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+    }
+    selectedClientRow = rowElement;
+    rowElement.querySelectorAll('td:not(:last-child)').forEach(td => td.classList.add('highlighted-cell'));
+}
+
+function clearHighlightedClientRow() {
+    if (selectedClientRow) {
+        selectedClientRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+        selectedClientRow = null;
+    }
+}
+
 
 async function loadClients() {
     try {
@@ -40,7 +58,10 @@ function renderClientsTable(clients) {
         const editBtn = document.createElement('button');
         editBtn.textContent = '✏️';
         editBtn.title = 'Editar';
-        editBtn.onclick = () => fillClientForm(client);
+        editBtn.onclick = () => {
+                    fillClientForm(client);
+                    highlightClientRow(row);
+                };
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = '🗑️';
@@ -127,4 +148,5 @@ function hideClientForm() {
     section.classList.remove('visible');
     section.classList.add('hidden');
     document.getElementById('client-form').reset();
+    clearHighlightedClientRow();
 }
