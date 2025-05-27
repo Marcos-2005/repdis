@@ -159,9 +159,24 @@ button:hover {
 }
 
 button#new-order-btn {
-   margin: 10px;
+   margin: 0px;
 }
 
+button.action-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4a76a8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 100px;
+     text-align: center;
+}
+
+button.action-button:hover {
+    background-color: #3b5f8e;
+}
 
 label {
    font-weight: bold;
@@ -172,6 +187,34 @@ input, select, textarea {
    width: 100%;
    box-sizing: border-box;
 }
+
+.left {
+  display: flex;
+  justify-content: flex-start !important;
+  gap: 1em;
+  margin-bottom: 10px;
+}
+
+.left .action-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  min-width: 110px; /* fuerza igual ancho mínimo */
+  background-color: #4a76a8;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/*botones form de device y clients*/
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 /* Para el logo */
 
 .logo-container {
@@ -371,13 +414,7 @@ input, select, textarea {
     text-align: left;
 }
 
-/*botones form de device y clients*/
 
-.form-buttons {
-  display: flex;
-  gap: 1em;
-  justify-content: flex-end;
-}
 
    /*Final normal*/
 
@@ -389,11 +426,6 @@ input, select, textarea {
     #order-form, #order-list-panel {
         width: 100%;
         flex: none;
-    }
-
-    .form-buttons {
-        flex-direction: column;
-        gap: 0.5em;
     }
 
     #orders-table th,
