@@ -35,71 +35,76 @@ async function validateNewDeviceBeforeSave(device) {
 }
 
 async function loadOrders() {
-    try {
-        const response = await fetch('http://localhost:8080/orders');
-        if (!response.ok) throw new Error('Error al obtener las órdenes de servicio');
+     try {
+         const response = await fetch('http://localhost:8080/orders');
+         if (!response.ok) throw new Error('Error al obtener las órdenes de servicio');
 
-        const orders = await response.json();
-        const tbody = document.getElementById('orders-body');
-        tbody.innerHTML = '';
+         const orders = await response.json();
+         const tbody = document.getElementById('orders-body');
+         tbody.innerHTML = '';
 
-        orders.forEach(order => {
-            const hideCompleted = document.getElementById('hide-completed').checked;
-            if (hideCompleted && order.status === 'COMPLETED') {
-                return; // Saltar esta orden
-            }
+         orders.forEach(order => {
+             const hideCompleted = document.getElementById('hide-completed').checked;
+             if (hideCompleted && order.status === 'COMPLETED') {
+                 return; // Saltar esta orden
+             }
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${order.id}</td>
-                <td>${order.client?.name || 'Sin nombre'}</td>
-                <td>${order.device?.type || 'Sin tipo'}</td>
-                <td>${order.status}</td>
-                <td>${order.difficulty}</td>
-                <td>${formatDate(order.entryDate)}</td>
-                <td>${order.adminName || 'Sin asignar'}</td>
-            `;
+             const row = document.createElement('tr');
+             row.innerHTML = `
+                 <td>${order.id}</td>
+                 <td>${order.client?.name || 'Sin nombre'}</td>
+                 <td>${order.device?.type || 'Sin tipo'}</td>
+                 <td>${order.status}</td>
+                 <td>${order.difficulty}</td>
+                 <td>${formatDate(order.entryDate)}</td>
+                 <td>${order.adminName || 'Sin asignar'}</td>
+             `;
 
-            const adminCell = row.children[6];
-            adminCell.classList.add('admin-cell');
-            adminCell.title = order.adminName || '';
+             const adminCell = row.children[6];
+             adminCell.classList.add('admin-cell');
+             adminCell.title = order.adminName || '';
 
-            const viewBtn = document.createElement('button');
-            viewBtn.textContent = '👁️';
-            viewBtn.style.backgroundColor = 'green';
-            viewBtn.onclick = () => {
-                fillOrderForm(order);
-                highlightRow(row);
-            };
+             const viewBtn = document.createElement('button');
+             viewBtn.textContent = '👁️';
+             viewBtn.style.backgroundColor = 'green';
+             viewBtn.onclick = () => {
+                 fillOrderForm(order);
+                 highlightRow(row);
+             };
 
-            const deleteBtn = document.createElement('button');
-            deleteBtn.textContent = '🗑️';
-            deleteBtn.style.backgroundColor = 'red';
-            deleteBtn.onclick = () => deleteOrder(order.id);
+             const deleteBtn = document.createElement('button');
+             deleteBtn.textContent = '🗑️';
+             deleteBtn.style.backgroundColor = 'red';
+             deleteBtn.onclick = () => deleteOrder(order.id);
 
-            const actionCell = document.createElement('td');
-            actionCell.appendChild(viewBtn);
-            actionCell.appendChild(deleteBtn);
-            row.appendChild(actionCell);
+             const buttonWrapper = document.createElement('div');
+             buttonWrapper.className = 'table-button-wrapper';
+             buttonWrapper.appendChild(viewBtn);
+             buttonWrapper.appendChild(deleteBtn);
 
-            tbody.appendChild(row);
-        });
+             const actionCell = document.createElement('td');
+             actionCell.appendChild(buttonWrapper);
+             row.appendChild(actionCell);
 
-        function highlightRow(row) {
-            if (highlightedRow) {
-                highlightedRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
-            }
-            highlightedRow = row;
-            const cells = row.querySelectorAll('td:not(:last-child)');
-            cells.forEach(td => td.classList.add('highlighted-cell'));
-        }
+             tbody.appendChild(row);
+         });
 
-    } catch (error) {
-        console.error('Error cargando órdenes:', error);
-        document.getElementById('orders-body').innerHTML =
-            '<tr><td colspan="7">Error al cargar las órdenes de servicio</td></tr>';
-    }
-}
+         function highlightRow(row) {
+             if (highlightedRow) {
+                 highlightedRow.querySelectorAll('td').forEach(td => td.classList.remove('highlighted-cell'));
+             }
+             highlightedRow = row;
+             const cells = row.querySelectorAll('td:not(:last-child)');
+             cells.forEach(td => td.classList.add('highlighted-cell'));
+         }
+
+     } catch (error) {
+         console.error('Error cargando órdenes:', error);
+         document.getElementById('orders-body').innerHTML =
+             '<tr><td colspan="7">Error al cargar las órdenes de servicio</td></tr>';
+     }
+ }
+
 
 function fillOrderForm(order) {
     document.getElementById('order-id').value = order.id || '';

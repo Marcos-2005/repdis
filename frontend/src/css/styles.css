@@ -337,84 +337,19 @@ input, select, textarea {
     font-weight: bold;
     margin: 10px 0;
 }
-/* pagina clientes*/
-.client-page,
-.device-page{
+
+.table-button-wrapper {
     display: flex;
-    flex-direction: row;
-    gap: 1em;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Mantiene la tabla a la izquierda */
-.client-list-section,
- .device-list-section{
-    flex: 1;
+.table-button-wrapper button {
+    padding: 6px 10px;
+    font-size: 1em;
+    min-width: 30px;
 }
-
-/* Formulario flotante a la derecha */
-#client-form-section,
-#device-form-section {
-  flex: 5 5 500px;
-  min-width: 450px;
-  max-width: 100%;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 2em 2em 1.5em 2em;
-  display: none;
-  height: fit-content;
-  position: sticky;
-  top: 1em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-#client-form-section.visible,
-#device-form-section.visible {
-  display: block;
-}
-
-.client-page {
-    display: flex;
-    gap: 1em;
-    align-items: flex-start;
-}
-
-#client-form-section input,
-#client-form-section label,
-#device-form-section input,
-#device-form-section label {
-  font-size: 1em;
-  margin-bottom: 0.6em;
-}
-
-
-#client-form-section label,
-#device-form-section label {
-  display: block;
-  font-weight: bold;
-  margin-top: 0.8em;
-}
-/*si*/
-
-#clients-table,
-#devices-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
-}
-
-#clients-table th,
-#clients-table td,
-#devices-table th,
-#devices-table td  {
-    border: 0.5px solid #ccc;
-    padding: 0.5em;
-    font-size: 0.95em;
-    text-align: left;
-}
-
-
 
    /*Final normal*/
 
@@ -430,8 +365,8 @@ input, select, textarea {
 
     #orders-table th,
     #orders-table td {
-            font-size: 0.95em;
-            padding: 0.6em;
+        font-size: 0.95em;
+        padding: 0.6em;
     }
 
     #orders-table td:last-child,
@@ -440,9 +375,21 @@ input, select, textarea {
         right: 0;
         background-color: #f4f4f4;
         z-index: 2;
+    }
 
+    .client-page {
+        flex-direction: column;
+    }
+
+    .filters {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 10;
+        padding: 1em;
     }
 }
+
 
 @media (max-width: 600px) {
     header h1 {
