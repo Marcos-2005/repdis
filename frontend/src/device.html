@@ -27,8 +27,8 @@
         <section class="list-section client-list-section">
             <h2>Lista de Dispositivos</h2>
             <div class="filters">
-                <label>Buscar por Tipo: <input type="text" id="filter-name"></label>
-                <label>Buscar por numero de serie: <input type="text" id="filter-phone"></label>
+                <label>Buscar por Tipo: <input type="text" id="filter-name" oninput="filterDevices()"></label>
+                <label>Buscar por numero de serie: <input type="text" id="filter-phone" oninput="filterDevices()"></label>
             </div>
 
             <table id="devices-table">

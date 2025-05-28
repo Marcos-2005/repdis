@@ -54,7 +54,6 @@ async function loadOrders() {
                  <td>${order.id}</td>
                  <td data-phone="${order.client?.phone || ''}">${order.client?.name || 'Sin nombre'}</td>
                  <td data-serial="${order.device?.serialNumber || ''}">${order.device?.type || 'Sin tipo'}</td>
-                 <td>${order.device?.type || 'Sin tipo'}</td>
                  <td>${order.status}</td>
                  <td>${order.difficulty}</td>
                  <td>${formatDate(order.entryDate)}</td>

@@ -163,3 +163,19 @@ function hideDeviceForm() {
     document.getElementById('device-form').reset();
     clearHighlightedDeviceRow();
 }
+
+function filterDevices() {
+    const typeFilter = document.getElementById('filter-name')?.value.toLowerCase() || '';
+    const serialFilter = document.getElementById('filter-phone')?.value.toLowerCase() || '';
+    const rows = document.querySelectorAll('#devices-table tbody tr');
+
+    rows.forEach(row => {
+        const typeCell = row.children[1];
+        const serialCell = row.children[4];
+
+        const typeMatch = typeCell.textContent.toLowerCase().includes(typeFilter);
+        const serialMatch = serialCell.textContent.toLowerCase().includes(serialFilter);
+
+        row.style.display = typeMatch && serialMatch ? '' : 'none';
+    });
+}
