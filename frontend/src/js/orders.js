@@ -234,20 +234,29 @@ async function saveOrder() {
     const client = getClientFromForm();
     const device = getDeviceFromForm();
 
-     try {
+    try {
         const existingClient = await validateNewClientBeforeSave(client);
         if (existingClient) {
-          client.id = existingClient.id;
+            client.id = existingClient.id;
         }
 
         const existingDevice = await validateNewDeviceBeforeSave(device);
         if (existingDevice) {
-          device.id = existingDevice.id;
+            device.id = existingDevice.id;
         }
-      } catch (validationError) {
+    } catch (validationError) {
         alert(validationError.message);
+
+        if (validationError.message.includes("teléfono")) {
+            const phoneInput = document.getElementById('client-phone');
+            phoneInput.classList.add('invalid');
+        } else if (validationError.message.includes("número de serie")) {
+            const serialInput = document.getElementById('device-serial');
+            serialInput.classList.add('invalid');
+        }
+
         return;
-      }
+    }
 
     const requiredFields = document.querySelectorAll('.required-field');
     let allValid = true;
@@ -266,7 +275,7 @@ async function saveOrder() {
         alert("Por favor, rellena todos los campos obligatorios.");
         return;
     } else {
-      errorBox.style.display = 'none';
+        errorBox.style.display = 'none';
     }
 
     const id = document.getElementById('order-id').value;
@@ -505,4 +514,12 @@ function formatDate(dateString) {
 document.addEventListener('DOMContentLoaded', () => {
     loadOrders();
     loadAdmins();
+
+    document.getElementById('client-phone').addEventListener('input', e => {
+        e.target.classList.remove('invalid');
+    });
+
+    document.getElementById('device-serial').addEventListener('input', e => {
+        e.target.classList.remove('invalid');
+    });
 });
