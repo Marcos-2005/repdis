@@ -52,7 +52,8 @@ async function loadOrders() {
              const row = document.createElement('tr');
              row.innerHTML = `
                  <td>${order.id}</td>
-                 <td>${order.client?.name || 'Sin nombre'}</td>
+                 <td data-phone="${order.client?.phone || ''}">${order.client?.name || 'Sin nombre'}</td>
+                 <td data-serial="${order.device?.serialNumber || ''}">${order.device?.type || 'Sin tipo'}</td>
                  <td>${order.device?.type || 'Sin tipo'}</td>
                  <td>${order.status}</td>
                  <td>${order.difficulty}</td>
@@ -512,13 +513,25 @@ function formatDate(dateString) {
 }
 
 function filterOrders() {
-    const idFilter = document.getElementById('filter-id').value.toLowerCase();
+    const idFilter = document.getElementById('filter-id')?.value.toLowerCase() || '';
+    const phoneFilter = document.getElementById('filter-telefono')?.value.toLowerCase() || '';
+    const serialFilter = document.getElementById('filter-serial')?.value.toLowerCase() || '';
     const rows = document.querySelectorAll('#orders-table tbody tr');
 
     rows.forEach(row => {
         const idCell = row.children[0];
-        const matchesId = idCell.textContent.toLowerCase().includes(idFilter);
-        row.style.display = matchesId ? '' : 'none';
+        const clientCell = row.children[1];
+        const deviceCell = row.children[2];
+
+        const phone = clientCell.dataset.phone?.toLowerCase() || '';
+        const serial = deviceCell.dataset.serial?.toLowerCase() || '';
+
+        const idMatch = idCell.textContent.toLowerCase().includes(idFilter);
+        const phoneMatch = phone.includes(phoneFilter);
+        const serialMatch = (deviceCell.dataset.serial || '').toLowerCase().includes(serialFilter);
+
+
+        row.style.display = idMatch && phoneMatch && serialMatch ? '' : 'none';
     });
 }
 
