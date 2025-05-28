@@ -511,6 +511,17 @@ function formatDate(dateString) {
     return `${day}/${month}/${year} ${hours}:${minutes}`;
 }
 
+function filterOrders() {
+    const idFilter = document.getElementById('filter-id').value.toLowerCase();
+    const rows = document.querySelectorAll('#orders-table tbody tr');
+
+    rows.forEach(row => {
+        const idCell = row.children[0];
+        const matchesId = idCell.textContent.toLowerCase().includes(idFilter);
+        row.style.display = matchesId ? '' : 'none';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadOrders();
     loadAdmins();
