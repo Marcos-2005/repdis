@@ -150,3 +150,19 @@ function hideClientForm() {
     document.getElementById('client-form').reset();
     clearHighlightedClientRow();
 }
+
+function filterClients() {
+    const nameFilter = document.getElementById('filter-name')?.value.toLowerCase() || '';
+    const phoneFilter = document.getElementById('filter-phone')?.value.toLowerCase() || '';
+    const rows = document.querySelectorAll('#clients-table tbody tr');
+
+    rows.forEach(row => {
+        const nameCell = row.children[1];
+        const phoneCell = row.children[3];
+
+        const nameMatch = nameCell.textContent.toLowerCase().includes(nameFilter);
+        const phoneMatch = phoneCell.textContent.toLowerCase().includes(phoneFilter);
+
+        row.style.display = nameMatch && phoneMatch ? '' : 'none';
+    });
+}

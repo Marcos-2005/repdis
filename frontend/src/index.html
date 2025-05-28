@@ -38,7 +38,7 @@
                 <legend>Datos del Cliente</legend>
                 <label>Nombre: <input type="text" id="client-name" class="required-field" required></label>
                 <label>DNI: <input type="text" id="client-dni" class="required-field" required></label>
-                <label>Teléfono: <input type="text" id="client-phone" class="required-field" required></label>
+                <label>Teléfono: * <input type="text" id="client-phone" class="required-field" required></label>
                 <label>Correo: <input type="email" id="client-email"></label>
                 <label>Dirección: <input type="text" id="client-address"></label>
                 <input type="hidden" id="client-id">
@@ -50,7 +50,7 @@
                 <label>Tipo: <input type="text" id="device-type" class="required-field" required></label>
                 <label>Marca: <input type="text" id="device-brand"></label>
                 <label>Modelo: <input type="text" id="device-model"></label>
-                <label>Serie: <input type="text" id="device-serial"class="required-field" required></label>
+                <label>Serie: * <input type="text" id="device-serial"class="required-field" required></label>
                 <label>Contraseña: <input type="text" id="device-password"></label>
                 <input type="hidden" id="device-id">
             </fieldset>
@@ -90,7 +90,7 @@
         <h2>Lista de Órdenes de Servicio</h2>
         <div class="filters">
             <label>Buscar por ID: <input type="text" id="filter-id" oninput="filterOrders()"></label>
-            <label>Buscar por DNI: <input type="text" id="filter-dni" oninput="filterOrders()"></label>
+            <label>Buscar por Telefono: <input type="text" id="filter-telefono" oninput="filterOrders()"></label>
             <label>Buscar por Serie: <input type="text" id="filter-serial" oninput="filterOrders()"></label>
             <label>Orden:
                 <select id="order-sort" onchange="sortOrders()">
